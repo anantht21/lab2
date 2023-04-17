@@ -1,0 +1,396 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat Apr 15 18:19:10 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.16-s053_1 (64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.16-s053_1 NR200827-1939/19_16-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.16-s019 (64bit) 08/31/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.16-s019_1 () Aug 22 2020 00:37:42 ( )
+#@(#)CDS: SYNTECH 19.16-s010_1 () Aug 17 2020 09:10:13 ( )
+#@(#)CDS: CPE v19.16-s038
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+o
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {../../cadence_cap_tech/tech.lef saed32nm_lvt_1p9m.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+set init_mmmc_file mmmc.tcl
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/ORCA_TOP.genus.vg
+set init_top_cell ORCA_TOP
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+floorPlan -s 900 815 10 10 10 10 -flip s -coreMarginsBy io
+read_power_intent ../../syn/outputs/ORCA_TOP.genus.upf -1801
+commit_power_intent
+modifyPowerDomainAttr PD_RISC_CORE -box 610 0 1000 250
+setNanoRouteMode -drouteEndIteration 10
+set_ccopt_property target_max_trans 0.3ns
+setNanoRouteMode -drouteEndIteration 5
+setNanoRouteMode -routeWithViaOnlyForMacroCellPin false
+setNanoRouteMode -routeWithViaOnlyForStandardCellPin 1:1
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+setPinAssignMode -pinEditInBatch true
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 3 -pin {sdram_clk sys_2x_clk shutdown test_mode test_si[5] test_si[4] test_si[3] test_si[2] test_si[1] test_si[0] test_so[5] test_so[4] test_so[3] test_so[2] test_so[1] test_so[0] scan_enable ate_clk occ_bypass occ_reset pclk prst_n pidsel pgnt_n pad_in[31] pad_in[30] pad_in[29] pad_in[28] pad_in[27] pad_in[26] pad_in[25] pad_in[24] pad_in[23] pad_in[22] pad_in[21] pad_in[20] pad_in[19] pad_in[18] pad_in[17] pad_in[16] pad_in[15] pad_in[14] pad_in[13] pad_in[12] pad_in[11] pad_in[10] pad_in[9] pad_in[8] pad_in[7] pad_in[6] pad_in[5] pad_in[4] pad_in[3] pad_in[2] pad_in[1] pad_in[0] pad_out[31] pad_out[30] pad_out[29] pad_out[28] pad_out[27] pad_out[26] pad_out[25] pad_out[24] pad_out[23] pad_out[22] pad_out[21] pad_out[20] pad_out[19] pad_out[18] pad_out[17] pad_out[16] pad_out[15] pad_out[14] pad_out[13] pad_out[12] pad_out[11] pad_out[10] pad_out[9] pad_out[8] pad_out[7] pad_out[6] pad_out[5] pad_out[4] pad_out[3] pad_out[2] pad_out[1] pad_out[0] pad_en ppar_in ppar_out ppar_en pc_be_in[3] pc_be_in[2] pc_be_in[1] pc_be_in[0] pc_be_out[3] pc_be_out[2] pc_be_out[1] pc_be_out[0] pc_be_en pframe_n_in pframe_n_out pframe_n_en ptrdy_n_in ptrdy_n_out ptrdy_n_en pirdy_n_in pirdy_n_out pirdy_n_en pdevsel_n_in pdevsel_n_out pdevsel_n_en pstop_n_in pstop_n_out pstop_n_en pperr_n_in pperr_n_out pperr_n_en pserr_n_in pserr_n_out pserr_n_en preq_n pack_n} -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 500 -spacing 2 -unit MICRON -fixedPin 1
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 3 -pin {pm66en sd_A[9] sd_A[8] sd_A[7] sd_A[6] sd_A[5] sd_A[4] sd_A[3] sd_A[2] sd_A[1] sd_A[0] sd_CK sd_CKn sd_LD sd_RW sd_BWS[1] sd_BWS[0] sd_DQ_in[31] sd_DQ_in[30] sd_DQ_in[29] sd_DQ_in[28] sd_DQ_in[27] sd_DQ_in[26] sd_DQ_in[25] sd_DQ_in[24] sd_DQ_in[23] sd_DQ_in[22] sd_DQ_in[21] sd_DQ_in[20] sd_DQ_in[19] sd_DQ_in[18] sd_DQ_in[17] sd_DQ_in[16] sd_DQ_in[15] sd_DQ_in[14] sd_DQ_in[13] sd_DQ_in[12] sd_DQ_in[11] sd_DQ_in[10] sd_DQ_in[9] sd_DQ_in[8] sd_DQ_in[7] sd_DQ_in[6] sd_DQ_in[5] sd_DQ_in[4] sd_DQ_in[3] sd_DQ_in[2] sd_DQ_in[1] sd_DQ_in[0] sd_DQ_out[31] sd_DQ_out[30] sd_DQ_out[29] sd_DQ_out[28] sd_DQ_out[27] sd_DQ_out[26] sd_DQ_out[25] sd_DQ_out[24] sd_DQ_out[23] sd_DQ_out[22] sd_DQ_out[21] sd_DQ_out[20] sd_DQ_out[19] sd_DQ_out[18] sd_DQ_out[17] sd_DQ_out[16] sd_DQ_out[15] sd_DQ_out[14] sd_DQ_out[13] sd_DQ_out[12] sd_DQ_out[11] sd_DQ_out[10] sd_DQ_out[9] sd_DQ_out[8] sd_DQ_out[7] sd_DQ_out[6] sd_DQ_out[5] sd_DQ_out[4] sd_DQ_out[3] sd_DQ_out[2] sd_DQ_out[1] sd_DQ_out[0] sd_DQ_en[31] sd_DQ_en[30] sd_DQ_en[29] sd_DQ_en[28] sd_DQ_en[27] sd_DQ_en[26] sd_DQ_en[25] sd_DQ_en[24] sd_DQ_en[23] sd_DQ_en[22] sd_DQ_en[21] sd_DQ_en[20] sd_DQ_en[19] sd_DQ_en[18] sd_DQ_en[17] sd_DQ_en[16] sd_DQ_en[15] sd_DQ_en[14] sd_DQ_en[13] sd_DQ_en[12] sd_DQ_en[11] sd_DQ_en[10] sd_DQ_en[9] sd_DQ_en[8] sd_DQ_en[7] sd_DQ_en[6] sd_DQ_en[5] sd_DQ_en[4] sd_DQ_en[3] sd_DQ_en[2] sd_DQ_en[1] sd_DQ_en[0] test_mode_1 scan_enable_2 DFT_sdi_1 DFT_sdo_1 DFT_sdi_2 DFT_sdo_2 DFT_sdi_3 DFT_sdo_3 DFT_sdi_4 DFT_sdo_4} -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 500 -spacing 2 -unit MICRON -fixedPin 1
+setPinAssignMode -pinEditInBatch false
+placeAIO -onlyAIO
+deselectAll
+select_obj [ get_ports * ]
+select_obj {port:ORCA_TOP/sdram_clk port:ORCA_TOP/sys_2x_clk port:ORCA_TOP/shutdown port:ORCA_TOP/test_mode {port:ORCA_TOP/test_si[5]} {port:ORCA_TOP/test_si[4]} {port:ORCA_TOP/test_si[3]} {port:ORCA_TOP/test_si[2]} {port:ORCA_TOP/test_si[1]} {port:ORCA_TOP/test_si[0]} {port:ORCA_TOP/test_so[5]} {port:ORCA_TOP/test_so[4]} {port:ORCA_TOP/test_so[3]} {port:ORCA_TOP/test_so[2]} {port:ORCA_TOP/test_so[1]} {port:ORCA_TOP/test_so[0]} port:ORCA_TOP/scan_enable port:ORCA_TOP/ate_clk port:ORCA_TOP/occ_bypass port:ORCA_TOP/occ_reset port:ORCA_TOP/pclk port:ORCA_TOP/prst_n port:ORCA_TOP/pidsel port:ORCA_TOP/pgnt_n {port:ORCA_TOP/pad_in[31]} {port:ORCA_TOP/pad_in[30]} {port:ORCA_TOP/pad_in[29]} {port:ORCA_TOP/pad_in[28]} {port:ORCA_TOP/pad_in[27]} {port:ORCA_TOP/pad_in[26]} {port:ORCA_TOP/pad_in[25]} {port:ORCA_TOP/pad_in[24]} {port:ORCA_TOP/pad_in[23]} {port:ORCA_TOP/pad_in[22]} {port:ORCA_TOP/pad_in[21]} {port:ORCA_TOP/pad_in[20]} {port:ORCA_TOP/pad_in[19]} {port:ORCA_TOP/pad_in[18]} {port:ORCA_TOP/pad_in[17]} {port:ORCA_TOP/pad_in[16]} {port:ORCA_TOP/pad_in[15]} {port:ORCA_TOP/pad_in[14]} {port:ORCA_TOP/pad_in[13]} {port:ORCA_TOP/pad_in[12]} {port:ORCA_TOP/pad_in[11]} {port:ORCA_TOP/pad_in[10]} {port:ORCA_TOP/pad_in[9]} {port:ORCA_TOP/pad_in[8]} {port:ORCA_TOP/pad_in[7]} {port:ORCA_TOP/pad_in[6]} {port:ORCA_TOP/pad_in[5]} {port:ORCA_TOP/pad_in[4]} {port:ORCA_TOP/pad_in[3]} {port:ORCA_TOP/pad_in[2]} {port:ORCA_TOP/pad_in[1]} {port:ORCA_TOP/pad_in[0]} {port:ORCA_TOP/pad_out[31]} {port:ORCA_TOP/pad_out[30]} {port:ORCA_TOP/pad_out[29]} {port:ORCA_TOP/pad_out[28]} {port:ORCA_TOP/pad_out[27]} {port:ORCA_TOP/pad_out[26]} {port:ORCA_TOP/pad_out[25]} {port:ORCA_TOP/pad_out[24]} {port:ORCA_TOP/pad_out[23]} {port:ORCA_TOP/pad_out[22]} {port:ORCA_TOP/pad_out[21]} {port:ORCA_TOP/pad_out[20]} {port:ORCA_TOP/pad_out[19]} {port:ORCA_TOP/pad_out[18]} {port:ORCA_TOP/pad_out[17]} {port:ORCA_TOP/pad_out[16]} {port:ORCA_TOP/pad_out[15]} {port:ORCA_TOP/pad_out[14]} {port:ORCA_TOP/pad_out[13]} {port:ORCA_TOP/pad_out[12]} {port:ORCA_TOP/pad_out[11]} {port:ORCA_TOP/pad_out[10]} {port:ORCA_TOP/pad_out[9]} {port:ORCA_TOP/pad_out[8]} {port:ORCA_TOP/pad_out[7]} {port:ORCA_TOP/pad_out[6]} {port:ORCA_TOP/pad_out[5]} {port:ORCA_TOP/pad_out[4]} {port:ORCA_TOP/pad_out[3]} {port:ORCA_TOP/pad_out[2]} {port:ORCA_TOP/pad_out[1]} {port:ORCA_TOP/pad_out[0]} port:ORCA_TOP/pad_en port:ORCA_TOP/ppar_in port:ORCA_TOP/ppar_out port:ORCA_TOP/ppar_en {port:ORCA_TOP/pc_be_in[3]} {port:ORCA_TOP/pc_be_in[2]} {port:ORCA_TOP/pc_be_in[1]} {port:ORCA_TOP/pc_be_in[0]} {port:ORCA_TOP/pc_be_out[3]} {port:ORCA_TOP/pc_be_out[2]} {port:ORCA_TOP/pc_be_out[1]} {port:ORCA_TOP/pc_be_out[0]} port:ORCA_TOP/pc_be_en port:ORCA_TOP/pframe_n_in port:ORCA_TOP/pframe_n_out port:ORCA_TOP/pframe_n_en port:ORCA_TOP/ptrdy_n_in port:ORCA_TOP/ptrdy_n_out port:ORCA_TOP/ptrdy_n_en port:ORCA_TOP/pirdy_n_in port:ORCA_TOP/pirdy_n_out port:ORCA_TOP/pirdy_n_en port:ORCA_TOP/pdevsel_n_in port:ORCA_TOP/pdevsel_n_out port:ORCA_TOP/pdevsel_n_en port:ORCA_TOP/pstop_n_in port:ORCA_TOP/pstop_n_out port:ORCA_TOP/pstop_n_en port:ORCA_TOP/pperr_n_in port:ORCA_TOP/pperr_n_out port:ORCA_TOP/pperr_n_en port:ORCA_TOP/pserr_n_in port:ORCA_TOP/pserr_n_out port:ORCA_TOP/pserr_n_en port:ORCA_TOP/preq_n port:ORCA_TOP/pack_n port:ORCA_TOP/pm66en {port:ORCA_TOP/sd_A[9]} {port:ORCA_TOP/sd_A[8]} {port:ORCA_TOP/sd_A[7]} {port:ORCA_TOP/sd_A[6]} {port:ORCA_TOP/sd_A[5]} {port:ORCA_TOP/sd_A[4]} {port:ORCA_TOP/sd_A[3]} {port:ORCA_TOP/sd_A[2]} {port:ORCA_TOP/sd_A[1]} {port:ORCA_TOP/sd_A[0]} port:ORCA_TOP/sd_CK port:ORCA_TOP/sd_CKn port:ORCA_TOP/sd_LD port:ORCA_TOP/sd_RW {port:ORCA_TOP/sd_BWS[1]} {port:ORCA_TOP/sd_BWS[0]} {port:ORCA_TOP/sd_DQ_in[31]} {port:ORCA_TOP/sd_DQ_in[30]} {port:ORCA_TOP/sd_DQ_in[29]} {port:ORCA_TOP/sd_DQ_in[28]} {port:ORCA_TOP/sd_DQ_in[27]} {port:ORCA_TOP/sd_DQ_in[26]} {port:ORCA_TOP/sd_DQ_in[25]} {port:ORCA_TOP/sd_DQ_in[24]} {port:ORCA_TOP/sd_DQ_in[23]} {port:ORCA_TOP/sd_DQ_in[22]} {port:ORCA_TOP/sd_DQ_in[21]} {port:ORCA_TOP/sd_DQ_in[20]} {port:ORCA_TOP/sd_DQ_in[19]} {port:ORCA_TOP/sd_DQ_in[18]} {port:ORCA_TOP/sd_DQ_in[17]} {port:ORCA_TOP/sd_DQ_in[16]} {port:ORCA_TOP/sd_DQ_in[15]} {port:ORCA_TOP/sd_DQ_in[14]} {port:ORCA_TOP/sd_DQ_in[13]} {port:ORCA_TOP/sd_DQ_in[12]} {port:ORCA_TOP/sd_DQ_in[11]} {port:ORCA_TOP/sd_DQ_in[10]} {port:ORCA_TOP/sd_DQ_in[9]} {port:ORCA_TOP/sd_DQ_in[8]} {port:ORCA_TOP/sd_DQ_in[7]} {port:ORCA_TOP/sd_DQ_in[6]} {port:ORCA_TOP/sd_DQ_in[5]} {port:ORCA_TOP/sd_DQ_in[4]} {port:ORCA_TOP/sd_DQ_in[3]} {port:ORCA_TOP/sd_DQ_in[2]} {port:ORCA_TOP/sd_DQ_in[1]} {port:ORCA_TOP/sd_DQ_in[0]} {port:ORCA_TOP/sd_DQ_out[31]} {port:ORCA_TOP/sd_DQ_out[30]} {port:ORCA_TOP/sd_DQ_out[29]} {port:ORCA_TOP/sd_DQ_out[28]} {port:ORCA_TOP/sd_DQ_out[27]} {port:ORCA_TOP/sd_DQ_out[26]} {port:ORCA_TOP/sd_DQ_out[25]} {port:ORCA_TOP/sd_DQ_out[24]} {port:ORCA_TOP/sd_DQ_out[23]} {port:ORCA_TOP/sd_DQ_out[22]} {port:ORCA_TOP/sd_DQ_out[21]} {port:ORCA_TOP/sd_DQ_out[20]} {port:ORCA_TOP/sd_DQ_out[19]} {port:ORCA_TOP/sd_DQ_out[18]} {port:ORCA_TOP/sd_DQ_out[17]} {port:ORCA_TOP/sd_DQ_out[16]} {port:ORCA_TOP/sd_DQ_out[15]} {port:ORCA_TOP/sd_DQ_out[14]} {port:ORCA_TOP/sd_DQ_out[13]} {port:ORCA_TOP/sd_DQ_out[12]} {port:ORCA_TOP/sd_DQ_out[11]} {port:ORCA_TOP/sd_DQ_out[10]} {port:ORCA_TOP/sd_DQ_out[9]} {port:ORCA_TOP/sd_DQ_out[8]} {port:ORCA_TOP/sd_DQ_out[7]} {port:ORCA_TOP/sd_DQ_out[6]} {port:ORCA_TOP/sd_DQ_out[5]} {port:ORCA_TOP/sd_DQ_out[4]} {port:ORCA_TOP/sd_DQ_out[3]} {port:ORCA_TOP/sd_DQ_out[2]} {port:ORCA_TOP/sd_DQ_out[1]} {port:ORCA_TOP/sd_DQ_out[0]} {port:ORCA_TOP/sd_DQ_en[31]} {port:ORCA_TOP/sd_DQ_en[30]} {port:ORCA_TOP/sd_DQ_en[29]} {port:ORCA_TOP/sd_DQ_en[28]} {port:ORCA_TOP/sd_DQ_en[27]} {port:ORCA_TOP/sd_DQ_en[26]} {port:ORCA_TOP/sd_DQ_en[25]} {port:ORCA_TOP/sd_DQ_en[24]} {port:ORCA_TOP/sd_DQ_en[23]} {port:ORCA_TOP/sd_DQ_en[22]} {port:ORCA_TOP/sd_DQ_en[21]} {port:ORCA_TOP/sd_DQ_en[20]} {port:ORCA_TOP/sd_DQ_en[19]} {port:ORCA_TOP/sd_DQ_en[18]} {port:ORCA_TOP/sd_DQ_en[17]} {port:ORCA_TOP/sd_DQ_en[16]} {port:ORCA_TOP/sd_DQ_en[15]} {port:ORCA_TOP/sd_DQ_en[14]} {port:ORCA_TOP/sd_DQ_en[13]} {port:ORCA_TOP/sd_DQ_en[12]} {port:ORCA_TOP/sd_DQ_en[11]} {port:ORCA_TOP/sd_DQ_en[10]} {port:ORCA_TOP/sd_DQ_en[9]} {port:ORCA_TOP/sd_DQ_en[8]} {port:ORCA_TOP/sd_DQ_en[7]} {port:ORCA_TOP/sd_DQ_en[6]} {port:ORCA_TOP/sd_DQ_en[5]} {port:ORCA_TOP/sd_DQ_en[4]} {port:ORCA_TOP/sd_DQ_en[3]} {port:ORCA_TOP/sd_DQ_en[2]} {port:ORCA_TOP/sd_DQ_en[1]} {port:ORCA_TOP/sd_DQ_en[0]} port:ORCA_TOP/test_mode_1 port:ORCA_TOP/scan_enable_2 port:ORCA_TOP/DFT_sdi_1 port:ORCA_TOP/DFT_sdo_1 port:ORCA_TOP/DFT_sdi_2 port:ORCA_TOP/DFT_sdo_2 port:ORCA_TOP/DFT_sdi_3 port:ORCA_TOP/DFT_sdo_3 port:ORCA_TOP/DFT_sdi_4 port:ORCA_TOP/DFT_sdo_4}
+select_obj {inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_4 {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_1} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_2} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_3} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_4} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_5} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_6} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_7} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_8} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_1} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_2} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_3} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_4} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_5} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_6} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_7} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_8} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_A_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_B_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_C_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_D_RAM} inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!3 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!4 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!7 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!8 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!11 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!12 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!13 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!14 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!17 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!18 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!19 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!20 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!23 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!24 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!25 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!26 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!29 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!30 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!31 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!32 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!35 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!36 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!37 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!38 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!41 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!42 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!43 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!44 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!47 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!48 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!49 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!50 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!53 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!54 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!55 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!56 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!59 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!60 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!61 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!62 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!65 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!66 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!67 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!68 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!71 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!72 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!73 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!74 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!77 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!78 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!79 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!80 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!83 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!84 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!85 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!86 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!89 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!90 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!91 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!92 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!95 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!96 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!97 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!98 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!101 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!102 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!103 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!104 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!107 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!108 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!109 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!110 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!113 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!114 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!115 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!116 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!119 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!120 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!121 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!122 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!125 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!126 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!127 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!128 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!131 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!132 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!133 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!134 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!137 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!138 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!139 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!140 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!143 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!144 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!145 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!146 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!149 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!150 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!151 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!152 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!155 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!156 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!157 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!158 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!161 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!162 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!163 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!164 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!167 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!168 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!169 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!170 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!173 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!174 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!175 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!176 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!179 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!180 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!181 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!182 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!185 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!186 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!187 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!188 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!191 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!192 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!193 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!194 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!197 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!198 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!199 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!200 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!203 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!204 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!205 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!206 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!209 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!210 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!211 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!212 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!215 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!216 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!217 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!218 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!221 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!222 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!223 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!224 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!227 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!228 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!229 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!230 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!233 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!234 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!235 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!236 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!239 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!240 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!241 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!242 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!245 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!246 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!247 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!248 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!251 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!252 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!253 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!254 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!257 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!258 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!259 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!260 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!263 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!264 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!265 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!266 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!269 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!270 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!271 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!272 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!275 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!276 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!277 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!278 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!281 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!282 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!283 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!284 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!287 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!288 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!289 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!290 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!293 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!294 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!295 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!296 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!299 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!300 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!301 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!302 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!305 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!306 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!307 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!308 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!311 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!312 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!313 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!314 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!317 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!318 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!319 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!320 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!323 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!324 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!325 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!326 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!329 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!330 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!331 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!332 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!335 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!336 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!337 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!338 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!341 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!342 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!343 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!344 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!347 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!348 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!349 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!350 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!353 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!354 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!355 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!356 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!359 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!360 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!361 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!362 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!365 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!366 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!367 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!368 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!371 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!372 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!373 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!374 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!377 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!378 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!379 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!380 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!383 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!384 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!385 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!386 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!389 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!390 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!391 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!392 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!395 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!396 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!397 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!398 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!401 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!402 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!403 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!404 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!407 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!408 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!409 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!410 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!413 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!414 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!415 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!416 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!419 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!420 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!421 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!422 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!425 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!426 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!427 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!428 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!431 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!432 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!433 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!434 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!437 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!438 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!439 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!440 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!443 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!444 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!445 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!446 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!449 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!450 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!451 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!452 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!455 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!456 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!457 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!458 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!461 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!462 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!463 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!464 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!467 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!468 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!469 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!470 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!473 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!474 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!475 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!476 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!479 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!480 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!481 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!482 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!485 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!486 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!487 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!488 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!491 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!492 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!493 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!494 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!497 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!498 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!499 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!500 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!503 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!504 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!505 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!506 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!509 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!510 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!511 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!512 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!515 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!516 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!517 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!518 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!521 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!522 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!523 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!524 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!527 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!528 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!529 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!530 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!533 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!534 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!535 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!536 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!539 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!540 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!541 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!542 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!545 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!546 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!547 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!548 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!551 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!552 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!553 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!554 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!557 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!558 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!559 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!560 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!563 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!564 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!565 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!566 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!569 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!570 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!571 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!572 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!575 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!576 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!579 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!580 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!583 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!584 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!587 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!588 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!591 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!592 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!595 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!596 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!599 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!600 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!603 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!604 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!607 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!608 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!611 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!612 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!615 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!616 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!619 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!620 {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO\/SD_FIFO_RAM_0} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO\/SD_FIFO_RAM_1} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO\/SD_FIFO_RAM_0} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO\/SD_FIFO_RAM_1}}
+select_obj {}
+defOut -selected ../outputs/ORCA_TOP.floorplan.innovus.macros.def
+fit
+deselectAll
+uiSetTool ruler
+zoomBox 62.01100 -32.45100 922.26400 763.25500
+zoomBox 153.82300 -17.09300 885.03800 659.25700
+zoomBox 109.58600 -45.13700 969.83900 750.56900
+zoomBox 224.26800 -25.94000 955.48300 650.41000
+uiSetTool move
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM 577.708 10.032 665.338 145.705
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM 566.18 149.238 701.853 236.868
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM 787.185 102.784 874.815 238.457
+zoomSelected
+zoomBox 550.50700 -64.63400 1068.19600 414.21200
+zoomBox 480.54100 -99.26200 1089.58700 464.08600
+zoomBox 503.23300 -67.70700 1020.92200 411.13900
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM 718.204 10.363 805.834 146.036
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM 821.346 10.565 908.976 146.238
+uiSetTool ruler
+redraw
+uiSetTool move
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM 614.542 10.702 702.172 146.375
+uiSetTool ruler
+zoomBox 579.46900 -11.11200 897.39500 282.95900
+zoomBox 598.03900 2.58400 868.27600 252.54400
+zoomBox 627.23900 24.12000 822.48600 204.71700
+zoomBox 638.64300 32.53000 804.60300 186.03800
+zoomBox 674.83100 58.02800 748.46900 126.14100
+zoomBox 682.70800 64.08000 735.91300 113.29300
+zoomBox 685.78500 66.47500 731.00900 108.30600
+zoomBox 692.51300 71.71200 720.28600 97.40100
+zoomBox 695.48300 74.03400 715.55000 92.59500
+zoomBox 679.08600 61.21300 741.68500 119.11500
+zoomBox 656.98700 43.93500 776.90700 154.85700
+uiSetTool move
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM 615.473 10.547 703.103 146.22
+zoomBox 634.04600 23.43700 800.02600 176.96300
+zoomBox 619.45700 10.40200 814.72800 191.02100
+zoomBox 602.29400 -4.93400 832.02500 207.56000
+zoomBox 585.61600 -24.33900 855.88800 225.65400
+zoomBox 567.47600 -47.66200 885.44300 246.44700
+zoomBox 546.57000 -73.35900 920.64900 272.65200
+zoomBox 521.97500 -103.42000 962.06800 303.65200
+uiSetTool select
+setLayerPreference pinObj -isVisible 1
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+setLayerPreference flightLine -isVisible 0
+setLayerPreference flightLine -isVisible 1
+setPreference ClockFlightline 0
+setPreference DrawFlightlineLast 1
+setPreference ScanFlightline 0
+setPreference SkipBufferFlightline 1
+setPreference ShowNetWeightConnection 0
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+zoomBox 449.14000 -179.38100 1058.26500 384.04000
+zoomBox 402.69400 -227.49500 1119.31200 435.35300
+zoomBox 440.51800 -162.83300 1049.64300 400.58800
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+zoomBox 507.21200 -80.61300 947.30500 326.45900
+zoomBox 533.25800 -48.50300 907.33800 297.50900
+zoomBox 492.60800 -74.12300 932.70200 332.95000
+zoomBox 444.78400 -104.26400 962.54200 374.64500
+setLayerPreference node_layer -isVisible 0
+setLayerPreference M1 -isVisible 1
+setLayerPreference M1 -isVisible 0
+setLayerPreference M2 -isVisible 1
+setLayerPreference M3 -isVisible 1
+setLayerPreference M4 -isVisible 1
+setLayerPreference M3 -isVisible 0
+setLayerPreference M2 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M4 -isVisible 0
+setLayerPreference M6 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M6 -isVisible 0
+setLayerPreference M6 -isVisible 1
+setLayerPreference M6 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M6 -isVisible 1
+setLayerPreference M6 -isVisible 0
+setLayerPreference M7 -isVisible 1
+setLayerPreference M7 -isVisible 0
+setLayerPreference M6 -isVisible 1
+setLayerPreference M6 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M6 -isVisible 1
+setLayerPreference M6 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M6 -isVisible 1
+setLayerPreference M6 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+setLayerPreference M5 -isVisible 1
+setLayerPreference M5 -isVisible 0
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+uiSetTool move
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM 774.489 161.964 910.162 249.594
+uiSetTool ruler
+zoomBox 676.54700 42.16900 906.27900 254.66400
+zoomBox 704.27500 59.68800 899.54800 240.30900
+zoomBox 728.29900 74.76900 894.28100 228.29700
+zoomBox 748.71900 87.58800 889.80400 218.08700
+zoomBox 766.07600 98.48300 885.99900 209.40800
+zoomBox 780.41100 107.21000 882.34500 201.49600
+zoomBox 792.71400 114.62800 879.35800 194.77100
+zoomBox 803.17100 120.93300 876.81900 189.05500
+fit
+zoomBox 82.04300 -33.43300 942.29600 762.27300
+zoomBox 190.88200 -19.07700 922.09700 657.27300
+zoomBox 283.39500 -6.87500 904.92800 568.02300
+zoomBox 190.88100 -19.07800 922.09700 657.27300
+zoomBox 279.84700 -10.84900 901.38100 564.05000
+uiSetTool select
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+setLayerPreference pinObj -isSelectable 1
+setLayerPreference pinObj -isSelectable 0
+setLayerPreference cellBlkgObj -isVisible 1
+setLayerPreference cellBlkgObj -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+deselectAll
+setLayerPreference M1 -isVisible 1
+zoomBox 227.06300 -35.82200 958.28000 640.53000
+zoomBox 326.24600 -5.17300 947.78000 569.72600
+zoomBox 415.01400 22.20500 943.31800 510.86900
+zoomBox 539.82200 60.89400 921.52300 413.95500
+zoomBox 629.59700 88.78400 905.37600 343.87100
+zoomBox 664.11300 99.54000 898.52600 316.36400
+zoomBox 736.09000 122.38300 880.05000 255.54100
+zoomBox 753.18600 127.85800 875.55200 241.04300
+zoomBox 799.49300 143.06700 863.37000 202.15100
+zoomBox 753.82800 120.49400 897.79200 253.65600
+zoomBox 774.25800 142.97600 838.13600 202.06100
+zoomBox 776.68800 145.69100 830.98400 195.91300
+zoomBox 783.93900 153.61400 812.28300 179.83100
+zoomBox 785.08900 154.87400 809.18100 177.15800
+zoomBox 788.69600 158.82600 799.38600 168.71400
+zoomBox 789.12700 159.29900 798.21400 167.70400
+zoomBox 790.29500 160.56300 795.03900 164.95100
+zoomBox 790.91100 161.42300 793.01600 163.37000
+setLayerPreference pinObj -isSelectable 1
+setLayerPreference M1 -isVisible 0
+setLayerPreference M2 -isVisible 1
+selectObject Pin I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/CSB1
+deselectAll
+selectObject Pin I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/CE1
+zoomBox 790.73600 161.29800 793.21200 163.58800
+zoomBox 790.52900 161.15000 793.44300 163.84500
+zoomBox 790.28600 160.97600 793.71400 164.14700
+zoomBox 789.26800 160.24800 794.85100 165.41200
+zoomBox 783.73200 156.22000 801.15000 172.33100
+zoomBox 774.16800 148.59300 813.42500 184.90400
+zoomBox 760.95900 133.84500 836.16500 203.40800
+zoomBox 742.65500 116.72700 865.11700 230.00000
+zoomBox 712.79100 89.05200 912.20100 273.50000
+zoomBox 664.16300 43.99100 988.87000 344.33400
+zoomBox 578.50000 -42.90500 1107.23300 446.15600
+zoomBox 605.17600 -7.61100 1054.59900 408.09100
+zoomBox 627.76300 22.47600 1009.77300 375.82300
+zoomBox 646.96200 49.08800 971.67100 349.43300
+zoomBox 683.33100 92.68400 917.93400 309.68400
+zoomBox 811.47400 159.03400 915.57100 255.32000
+zoomBox 850.91400 179.45500 914.84400 238.58800
+zoomBox 860.33000 184.33000 914.67000 234.59300
+zoomBox 884.96000 197.93900 913.32600 224.17700
+setLayerPreference node_layer -isVisible 1
+zoomBox 881.32000 195.49100 914.69200 226.35900
+deselectAll
+selectInst I_RISC_CORE/xoendcap!DCAP_HVT!95
+deselectAll
+selectInst I_RISC_CORE/xoendcap!DCAP_HVT!95
+deselectAll
+selectObject Pin {I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/O1[0]}
+zoomBox 832.56800 179.56900 921.05400 261.41600
+zoomBox 709.87700 118.12800 944.49700 335.14400
+zoomBox 830.58600 171.11100 919.07300 252.95900
+zoomBox 881.15500 190.57400 914.52900 221.44400
+zoomBox 892.76600 195.12200 913.26300 214.08100
+zoomBox 902.38800 199.29000 911.48400 207.70400
+zoomBox 903.53400 199.78800 911.26700 206.94100
+deselectAll
+selectObject Pin {I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM/O1[0]}
+zoomBox 891.38600 192.93300 915.51200 215.24900
+zoomBox 865.63100 178.46700 920.00500 228.76100
+zoomBox 807.97800 143.83100 930.52500 257.18300
+zoomBox 744.11200 108.84500 943.66200 293.42200
+zoomBox 683.92700 74.83500 960.12100 330.30600
+zoomBox 645.65300 53.20800 970.58800 353.76200
+zoomBox 600.62500 27.76300 982.90200 381.35700
+zoomBox 458.90400 -62.99700 1081.38000 512.77300
+zoomBox 392.39800 -103.92400 1124.72300 573.45300
+zoomBox 338.06300 -144.88400 1199.62200 652.03000
+zoomBox 274.33600 -193.07300 1287.93500 744.47300
+zoomBox 353.66000 -113.02100 1085.98500 564.35600
+zoomBox 384.63900 -81.75800 1007.11600 494.01300
+zoomBox 419.78900 -54.94300 948.89500 434.46300
+zoomBox 597.15700 23.92600 796.71100 208.50700
+zoomBox 664.36600 53.67200 739.62900 123.28800
+zoomBox 690.62700 66.37100 714.75600 88.69000
+zoomBox 698.32500 70.11100 707.42700 78.53000
+zoomBox 701.06200 71.55700 705.10200 75.29400
+zoomBox 697.07800 69.37300 706.18400 77.79600
+zoomBox 686.21300 62.53200 710.36000 84.86700
+zoomBox 650.00700 40.33700 725.33300 110.01100
+zoomBox 562.29700 -12.81100 762.02700 171.93300
+zoomBox 385.74300 -119.71500 835.88700 296.65400
+zoomBox 271.65500 -199.09200 894.69200 377.19700
+zoomBox 473.91700 -55.77500 799.14700 245.05200
+zoomBox 507.11300 -33.30900 783.55900 222.39500
+zoomBox 575.66000 -14.67600 719.96800 118.80400
+zoomBox 442.46600 -55.99300 825.10100 297.93200
+zoomBox 350.79900 -123.29600 973.85700 453.01200
+zoomBox 431.07900 -73.24200 960.67800 416.62000
+zoomBox 499.31600 -30.69600 949.47600 385.68700
+deselectAll
+selectObject Pin {I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM/O1[0]}
+setLayerPreference node_layer -isVisible 0
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+uiSetTool move
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM 666.374 10.363 754.004 146.036
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM 563.643 10.547 651.273 146.22
+uiSetTool select
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+uiSetTool move
+flipOrRotateObject -rotate R270 -group
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM 772.428 11.73 908.101 99.36
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM 772.742 101.399 908.415 189.029
+zoomBox 446.49300 -58.03300 976.09300 431.83000
+zoomBox 384.34700 -90.19400 1007.40700 486.11600
+zoomBox 311.23500 -128.03000 1044.24700 549.98200
+zoomBox 225.22100 -172.54400 1087.58900 625.11900
+zoomBox 4.12000 -287.37900 1197.71000 816.65300
+zoomBox -136.75600 -361.22300 1267.46700 937.63800
+zoomBox 116.65700 -233.37300 1131.20900 705.05500
+zoomBox 214.89600 -183.95800 1077.26600 613.70600
+zoomBox 307.77100 -136.60000 1040.78500 541.41400
+zoomBox 209.20600 -185.46400 1071.57600 612.20000
+fit
+zoomBox 53.76300 -31.27300 914.01600 764.43300
+zoomBox 138.56400 -14.91400 869.77900 661.43600
+zoomBox 210.64500 -1.00900 832.17800 573.88900
+zoomBox 138.56400 -14.91400 869.77900 661.43600
+zoomBox 67.45100 -34.44500 927.70400 761.26100
+zoomBox 186.30600 -21.25700 917.52100 655.09300
+zoomBox 287.47400 -10.04800 909.00700 564.85000
+zoomBox 109.48400 -47.84900 969.73700 747.85700
+zoomBox 207.64000 -27.31600 938.85500 649.03400
+zoomBox 291.07200 -9.86400 912.60500 565.03400
+zoomBox 109.48200 -47.85000 969.73700 747.85800
+zoomBox 291.07100 -9.86500 912.60500 565.03400
+zoomBox 361.98900 4.97000 890.29300 493.63400
+setObjFPlanBox Instance I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM 430.309 -473.282 565.982 -385.652
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+uiSetTool ruler
+zoomBox 319.65500 -17.94700 941.19000 556.95300
+zoomBox 269.85000 -44.90700 1001.06800 631.44600
+uiSetTool select
+zoomBox 310.57300 -22.06200 932.10800 552.83800
+zoomBox 269.85000 -44.90700 1001.06800 631.44600
+zoomBox 351.58000 -27.73800 973.11500 547.16200
+zoomBox 421.05000 -13.14400 949.35500 475.52100
+zoomBox 351.58000 -27.73800 973.11500 547.16200
+zoomBox 269.85000 -44.90700 1001.06800 631.44600
+deselectAll
+selectObject Group PD_RISC_CORE
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+zoomBox -397.80400 -304.08500 1250.18000 1220.24700
+zoomBox -1170.73200 -590.75200 1512.73500 1891.36800
+zoomBox -397.80400 -304.08600 1250.18000 1220.24600
+zoomBox -213.28500 -235.65100 1187.50100 1060.03100
+zoomBox 74.62700 -128.03700 1086.69600 808.09400
+zoomBox 186.96300 -86.00900 1047.22100 709.70200
+zoomBox 295.80300 -56.79600 1027.02200 619.55800
+uiSetTool ruler
+zoomBox 549.97000 3.72000 874.41700 303.82300
+zoomBox 511.15800 -8.42700 892.86000 344.63500
+zoomBox 465.49700 -22.71800 914.55800 392.64900
+zoomBox 415.16100 -39.12100 943.46800 449.54600
+zoomBox 557.21500 -12.75900 938.91700 340.30300
+zoomBox 612.69300 -2.46300 937.13900 297.63900
+zoomBox 659.84900 6.28800 935.62800 261.37500
+zoomBox 730.02000 17.19400 929.27100 201.49500
+zoomBox 757.27800 21.37000 926.64200 178.02600
+zoomBox 780.44700 24.91900 924.40700 158.07700
+zoomBox 800.14100 27.93500 922.50700 141.12000
+zoomBox 780.44600 24.91800 924.40700 158.07700
+zoomBox 660.55900 5.86200 936.34500 260.95500
+zoomBox 616.29800 -1.31500 940.75200 298.79400
+zoomBox 502.96500 -20.66100 952.03700 394.71600
+zoomBox 430.68800 -40.44800 959.00800 448.23100
+zoomBox 498.14500 -30.09400 947.21800 385.28400
+uiSetTool ruler
