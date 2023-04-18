@@ -71,3 +71,5 @@ place_design -noPrePlaceOpt
 globalRoute
 checkFPlan -reportUtil
 summaryReport -noHtml -outfile summary.rpt
+setLayerPreference node_layer -isVisible 0
+fit

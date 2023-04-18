@@ -29,7 +29,7 @@ set top_design ORCA_TOP
 set FCL 1
 set add_ios 0
 set pad_design 0
-set design_size {735 793}
+set design_size {762 793}
 set design_io_border 10
 set dc_floorplanning 1
 set enable_dft 1

@@ -150,7 +150,7 @@ if {[info exists synopsys_program_name]} {
         set ports1 [ range_collection $all_ports 0 [expr $num_ports / 2 ] ]
         set ports2 [ range_collection $all_ports [expr ($num_ports / 2 ) + 1 ]  [ expr $num_ports - 1 ]  ]
         # put the two collections on to two layers of ports
-        editPin -edge 3 -pin [get_attribute $ports1 full_name ] -layer M6 -spreadDirection counterclockwise -spreadType START -offsetStart 374 -spacing 2 -unit MICRON -fixedPin 1 
-        editPin -edge 3 -pin [get_attribute $ports2 full_name ] -layer M8 -spreadDirection counterclockwise -spreadType START -offsetStart 374 -spacing 2 -unit MICRON -fixedPin 1 
+        editPin -edge 2 -pin [get_attribute $ports1 full_name ] -layer M5 -spreadDirection counterclockwise -spreadType START -offsetStart 406 -spacing 2 -unit MICRON -fixedPin 1 
+        editPin -edge 2 -pin [get_attribute $ports2 full_name ] -layer M7 -spreadDirection counterclockwise -spreadType START -offsetStart 406 -spacing 2 -unit MICRON -fixedPin 1 
         setPinAssignMode -pinEditInBatch false
 }
