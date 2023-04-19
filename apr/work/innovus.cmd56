@@ -1,0 +1,1152 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Apr 18 21:31:30 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.16-s053_1 (64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.16-s053_1 NR200827-1939/19_16-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.16-s019 (64bit) 08/31/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.16-s019_1 () Aug 22 2020 00:37:42 ( )
+#@(#)CDS: SYNTECH 19.16-s010_1 () Aug 17 2020 09:10:13 ( )
+#@(#)CDS: CPE v19.16-s038
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+o
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {../../cadence_cap_tech/tech.lef saed32nm_lvt_1p9m.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+set init_mmmc_file mmmc.tcl
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/ORCA_TOP.genus.vg
+set init_top_cell ORCA_TOP
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+floorPlan -s 762 793 10 10 10 10 -flip s -coreMarginsBy io
+read_power_intent ../../syn/outputs/ORCA_TOP.genus.upf -1801
+commit_power_intent
+modifyPowerDomainAttr PD_RISC_CORE -box 472 10 772.048 320
+setNanoRouteMode -drouteEndIteration 10
+set_ccopt_property target_max_trans 0.3ns
+setNanoRouteMode -drouteEndIteration 5
+setNanoRouteMode -routeWithViaOnlyForMacroCellPin false
+setNanoRouteMode -routeWithViaOnlyForStandardCellPin 1:1
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+setPinAssignMode -pinEditInBatch true
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 2 -pin {sdram_clk sys_2x_clk shutdown test_mode test_si[5] test_si[4] test_si[3] test_si[2] test_si[1] test_si[0] test_so[5] test_so[4] test_so[3] test_so[2] test_so[1] test_so[0] scan_enable ate_clk occ_bypass occ_reset pclk prst_n pidsel pgnt_n pad_in[31] pad_in[30] pad_in[29] pad_in[28] pad_in[27] pad_in[26] pad_in[25] pad_in[24] pad_in[23] pad_in[22] pad_in[21] pad_in[20] pad_in[19] pad_in[18] pad_in[17] pad_in[16] pad_in[15] pad_in[14] pad_in[13] pad_in[12] pad_in[11] pad_in[10] pad_in[9] pad_in[8] pad_in[7] pad_in[6] pad_in[5] pad_in[4] pad_in[3] pad_in[2] pad_in[1] pad_in[0] pad_out[31] pad_out[30] pad_out[29] pad_out[28] pad_out[27] pad_out[26] pad_out[25] pad_out[24] pad_out[23] pad_out[22] pad_out[21] pad_out[20] pad_out[19] pad_out[18] pad_out[17] pad_out[16] pad_out[15] pad_out[14] pad_out[13] pad_out[12] pad_out[11] pad_out[10] pad_out[9] pad_out[8] pad_out[7] pad_out[6] pad_out[5] pad_out[4] pad_out[3] pad_out[2] pad_out[1] pad_out[0] pad_en ppar_in ppar_out ppar_en pc_be_in[3] pc_be_in[2] pc_be_in[1] pc_be_in[0] pc_be_out[3] pc_be_out[2] pc_be_out[1] pc_be_out[0] pc_be_en pframe_n_in pframe_n_out pframe_n_en ptrdy_n_in ptrdy_n_out ptrdy_n_en pirdy_n_in pirdy_n_out pirdy_n_en pdevsel_n_in pdevsel_n_out pdevsel_n_en pstop_n_in pstop_n_out pstop_n_en pperr_n_in pperr_n_out pperr_n_en pserr_n_in pserr_n_out pserr_n_en preq_n pack_n} -layer M5 -spreadDirection counterclockwise -spreadType START -offsetStart 406 -spacing 2 -unit MICRON -fixedPin 1
+get_message -id GLOBAL-100 -suppress
+get_message -id GLOBAL-100 -suppress
+editPin -edge 2 -pin {pm66en sd_A[9] sd_A[8] sd_A[7] sd_A[6] sd_A[5] sd_A[4] sd_A[3] sd_A[2] sd_A[1] sd_A[0] sd_CK sd_CKn sd_LD sd_RW sd_BWS[1] sd_BWS[0] sd_DQ_in[31] sd_DQ_in[30] sd_DQ_in[29] sd_DQ_in[28] sd_DQ_in[27] sd_DQ_in[26] sd_DQ_in[25] sd_DQ_in[24] sd_DQ_in[23] sd_DQ_in[22] sd_DQ_in[21] sd_DQ_in[20] sd_DQ_in[19] sd_DQ_in[18] sd_DQ_in[17] sd_DQ_in[16] sd_DQ_in[15] sd_DQ_in[14] sd_DQ_in[13] sd_DQ_in[12] sd_DQ_in[11] sd_DQ_in[10] sd_DQ_in[9] sd_DQ_in[8] sd_DQ_in[7] sd_DQ_in[6] sd_DQ_in[5] sd_DQ_in[4] sd_DQ_in[3] sd_DQ_in[2] sd_DQ_in[1] sd_DQ_in[0] sd_DQ_out[31] sd_DQ_out[30] sd_DQ_out[29] sd_DQ_out[28] sd_DQ_out[27] sd_DQ_out[26] sd_DQ_out[25] sd_DQ_out[24] sd_DQ_out[23] sd_DQ_out[22] sd_DQ_out[21] sd_DQ_out[20] sd_DQ_out[19] sd_DQ_out[18] sd_DQ_out[17] sd_DQ_out[16] sd_DQ_out[15] sd_DQ_out[14] sd_DQ_out[13] sd_DQ_out[12] sd_DQ_out[11] sd_DQ_out[10] sd_DQ_out[9] sd_DQ_out[8] sd_DQ_out[7] sd_DQ_out[6] sd_DQ_out[5] sd_DQ_out[4] sd_DQ_out[3] sd_DQ_out[2] sd_DQ_out[1] sd_DQ_out[0] sd_DQ_en[31] sd_DQ_en[30] sd_DQ_en[29] sd_DQ_en[28] sd_DQ_en[27] sd_DQ_en[26] sd_DQ_en[25] sd_DQ_en[24] sd_DQ_en[23] sd_DQ_en[22] sd_DQ_en[21] sd_DQ_en[20] sd_DQ_en[19] sd_DQ_en[18] sd_DQ_en[17] sd_DQ_en[16] sd_DQ_en[15] sd_DQ_en[14] sd_DQ_en[13] sd_DQ_en[12] sd_DQ_en[11] sd_DQ_en[10] sd_DQ_en[9] sd_DQ_en[8] sd_DQ_en[7] sd_DQ_en[6] sd_DQ_en[5] sd_DQ_en[4] sd_DQ_en[3] sd_DQ_en[2] sd_DQ_en[1] sd_DQ_en[0] test_mode_1 scan_enable_2 DFT_sdi_1 DFT_sdo_1 DFT_sdi_2 DFT_sdo_2 DFT_sdi_3 DFT_sdo_3 DFT_sdi_4 DFT_sdo_4} -layer M7 -spreadDirection counterclockwise -spreadType START -offsetStart 406 -spacing 2 -unit MICRON -fixedPin 1
+setPinAssignMode -pinEditInBatch false
+placeAIO -onlyAIO
+deselectAll
+select_obj [ get_ports * ]
+select_obj {port:ORCA_TOP/sdram_clk port:ORCA_TOP/sys_2x_clk port:ORCA_TOP/shutdown port:ORCA_TOP/test_mode {port:ORCA_TOP/test_si[5]} {port:ORCA_TOP/test_si[4]} {port:ORCA_TOP/test_si[3]} {port:ORCA_TOP/test_si[2]} {port:ORCA_TOP/test_si[1]} {port:ORCA_TOP/test_si[0]} {port:ORCA_TOP/test_so[5]} {port:ORCA_TOP/test_so[4]} {port:ORCA_TOP/test_so[3]} {port:ORCA_TOP/test_so[2]} {port:ORCA_TOP/test_so[1]} {port:ORCA_TOP/test_so[0]} port:ORCA_TOP/scan_enable port:ORCA_TOP/ate_clk port:ORCA_TOP/occ_bypass port:ORCA_TOP/occ_reset port:ORCA_TOP/pclk port:ORCA_TOP/prst_n port:ORCA_TOP/pidsel port:ORCA_TOP/pgnt_n {port:ORCA_TOP/pad_in[31]} {port:ORCA_TOP/pad_in[30]} {port:ORCA_TOP/pad_in[29]} {port:ORCA_TOP/pad_in[28]} {port:ORCA_TOP/pad_in[27]} {port:ORCA_TOP/pad_in[26]} {port:ORCA_TOP/pad_in[25]} {port:ORCA_TOP/pad_in[24]} {port:ORCA_TOP/pad_in[23]} {port:ORCA_TOP/pad_in[22]} {port:ORCA_TOP/pad_in[21]} {port:ORCA_TOP/pad_in[20]} {port:ORCA_TOP/pad_in[19]} {port:ORCA_TOP/pad_in[18]} {port:ORCA_TOP/pad_in[17]} {port:ORCA_TOP/pad_in[16]} {port:ORCA_TOP/pad_in[15]} {port:ORCA_TOP/pad_in[14]} {port:ORCA_TOP/pad_in[13]} {port:ORCA_TOP/pad_in[12]} {port:ORCA_TOP/pad_in[11]} {port:ORCA_TOP/pad_in[10]} {port:ORCA_TOP/pad_in[9]} {port:ORCA_TOP/pad_in[8]} {port:ORCA_TOP/pad_in[7]} {port:ORCA_TOP/pad_in[6]} {port:ORCA_TOP/pad_in[5]} {port:ORCA_TOP/pad_in[4]} {port:ORCA_TOP/pad_in[3]} {port:ORCA_TOP/pad_in[2]} {port:ORCA_TOP/pad_in[1]} {port:ORCA_TOP/pad_in[0]} {port:ORCA_TOP/pad_out[31]} {port:ORCA_TOP/pad_out[30]} {port:ORCA_TOP/pad_out[29]} {port:ORCA_TOP/pad_out[28]} {port:ORCA_TOP/pad_out[27]} {port:ORCA_TOP/pad_out[26]} {port:ORCA_TOP/pad_out[25]} {port:ORCA_TOP/pad_out[24]} {port:ORCA_TOP/pad_out[23]} {port:ORCA_TOP/pad_out[22]} {port:ORCA_TOP/pad_out[21]} {port:ORCA_TOP/pad_out[20]} {port:ORCA_TOP/pad_out[19]} {port:ORCA_TOP/pad_out[18]} {port:ORCA_TOP/pad_out[17]} {port:ORCA_TOP/pad_out[16]} {port:ORCA_TOP/pad_out[15]} {port:ORCA_TOP/pad_out[14]} {port:ORCA_TOP/pad_out[13]} {port:ORCA_TOP/pad_out[12]} {port:ORCA_TOP/pad_out[11]} {port:ORCA_TOP/pad_out[10]} {port:ORCA_TOP/pad_out[9]} {port:ORCA_TOP/pad_out[8]} {port:ORCA_TOP/pad_out[7]} {port:ORCA_TOP/pad_out[6]} {port:ORCA_TOP/pad_out[5]} {port:ORCA_TOP/pad_out[4]} {port:ORCA_TOP/pad_out[3]} {port:ORCA_TOP/pad_out[2]} {port:ORCA_TOP/pad_out[1]} {port:ORCA_TOP/pad_out[0]} port:ORCA_TOP/pad_en port:ORCA_TOP/ppar_in port:ORCA_TOP/ppar_out port:ORCA_TOP/ppar_en {port:ORCA_TOP/pc_be_in[3]} {port:ORCA_TOP/pc_be_in[2]} {port:ORCA_TOP/pc_be_in[1]} {port:ORCA_TOP/pc_be_in[0]} {port:ORCA_TOP/pc_be_out[3]} {port:ORCA_TOP/pc_be_out[2]} {port:ORCA_TOP/pc_be_out[1]} {port:ORCA_TOP/pc_be_out[0]} port:ORCA_TOP/pc_be_en port:ORCA_TOP/pframe_n_in port:ORCA_TOP/pframe_n_out port:ORCA_TOP/pframe_n_en port:ORCA_TOP/ptrdy_n_in port:ORCA_TOP/ptrdy_n_out port:ORCA_TOP/ptrdy_n_en port:ORCA_TOP/pirdy_n_in port:ORCA_TOP/pirdy_n_out port:ORCA_TOP/pirdy_n_en port:ORCA_TOP/pdevsel_n_in port:ORCA_TOP/pdevsel_n_out port:ORCA_TOP/pdevsel_n_en port:ORCA_TOP/pstop_n_in port:ORCA_TOP/pstop_n_out port:ORCA_TOP/pstop_n_en port:ORCA_TOP/pperr_n_in port:ORCA_TOP/pperr_n_out port:ORCA_TOP/pperr_n_en port:ORCA_TOP/pserr_n_in port:ORCA_TOP/pserr_n_out port:ORCA_TOP/pserr_n_en port:ORCA_TOP/preq_n port:ORCA_TOP/pack_n port:ORCA_TOP/pm66en {port:ORCA_TOP/sd_A[9]} {port:ORCA_TOP/sd_A[8]} {port:ORCA_TOP/sd_A[7]} {port:ORCA_TOP/sd_A[6]} {port:ORCA_TOP/sd_A[5]} {port:ORCA_TOP/sd_A[4]} {port:ORCA_TOP/sd_A[3]} {port:ORCA_TOP/sd_A[2]} {port:ORCA_TOP/sd_A[1]} {port:ORCA_TOP/sd_A[0]} port:ORCA_TOP/sd_CK port:ORCA_TOP/sd_CKn port:ORCA_TOP/sd_LD port:ORCA_TOP/sd_RW {port:ORCA_TOP/sd_BWS[1]} {port:ORCA_TOP/sd_BWS[0]} {port:ORCA_TOP/sd_DQ_in[31]} {port:ORCA_TOP/sd_DQ_in[30]} {port:ORCA_TOP/sd_DQ_in[29]} {port:ORCA_TOP/sd_DQ_in[28]} {port:ORCA_TOP/sd_DQ_in[27]} {port:ORCA_TOP/sd_DQ_in[26]} {port:ORCA_TOP/sd_DQ_in[25]} {port:ORCA_TOP/sd_DQ_in[24]} {port:ORCA_TOP/sd_DQ_in[23]} {port:ORCA_TOP/sd_DQ_in[22]} {port:ORCA_TOP/sd_DQ_in[21]} {port:ORCA_TOP/sd_DQ_in[20]} {port:ORCA_TOP/sd_DQ_in[19]} {port:ORCA_TOP/sd_DQ_in[18]} {port:ORCA_TOP/sd_DQ_in[17]} {port:ORCA_TOP/sd_DQ_in[16]} {port:ORCA_TOP/sd_DQ_in[15]} {port:ORCA_TOP/sd_DQ_in[14]} {port:ORCA_TOP/sd_DQ_in[13]} {port:ORCA_TOP/sd_DQ_in[12]} {port:ORCA_TOP/sd_DQ_in[11]} {port:ORCA_TOP/sd_DQ_in[10]} {port:ORCA_TOP/sd_DQ_in[9]} {port:ORCA_TOP/sd_DQ_in[8]} {port:ORCA_TOP/sd_DQ_in[7]} {port:ORCA_TOP/sd_DQ_in[6]} {port:ORCA_TOP/sd_DQ_in[5]} {port:ORCA_TOP/sd_DQ_in[4]} {port:ORCA_TOP/sd_DQ_in[3]} {port:ORCA_TOP/sd_DQ_in[2]} {port:ORCA_TOP/sd_DQ_in[1]} {port:ORCA_TOP/sd_DQ_in[0]} {port:ORCA_TOP/sd_DQ_out[31]} {port:ORCA_TOP/sd_DQ_out[30]} {port:ORCA_TOP/sd_DQ_out[29]} {port:ORCA_TOP/sd_DQ_out[28]} {port:ORCA_TOP/sd_DQ_out[27]} {port:ORCA_TOP/sd_DQ_out[26]} {port:ORCA_TOP/sd_DQ_out[25]} {port:ORCA_TOP/sd_DQ_out[24]} {port:ORCA_TOP/sd_DQ_out[23]} {port:ORCA_TOP/sd_DQ_out[22]} {port:ORCA_TOP/sd_DQ_out[21]} {port:ORCA_TOP/sd_DQ_out[20]} {port:ORCA_TOP/sd_DQ_out[19]} {port:ORCA_TOP/sd_DQ_out[18]} {port:ORCA_TOP/sd_DQ_out[17]} {port:ORCA_TOP/sd_DQ_out[16]} {port:ORCA_TOP/sd_DQ_out[15]} {port:ORCA_TOP/sd_DQ_out[14]} {port:ORCA_TOP/sd_DQ_out[13]} {port:ORCA_TOP/sd_DQ_out[12]} {port:ORCA_TOP/sd_DQ_out[11]} {port:ORCA_TOP/sd_DQ_out[10]} {port:ORCA_TOP/sd_DQ_out[9]} {port:ORCA_TOP/sd_DQ_out[8]} {port:ORCA_TOP/sd_DQ_out[7]} {port:ORCA_TOP/sd_DQ_out[6]} {port:ORCA_TOP/sd_DQ_out[5]} {port:ORCA_TOP/sd_DQ_out[4]} {port:ORCA_TOP/sd_DQ_out[3]} {port:ORCA_TOP/sd_DQ_out[2]} {port:ORCA_TOP/sd_DQ_out[1]} {port:ORCA_TOP/sd_DQ_out[0]} {port:ORCA_TOP/sd_DQ_en[31]} {port:ORCA_TOP/sd_DQ_en[30]} {port:ORCA_TOP/sd_DQ_en[29]} {port:ORCA_TOP/sd_DQ_en[28]} {port:ORCA_TOP/sd_DQ_en[27]} {port:ORCA_TOP/sd_DQ_en[26]} {port:ORCA_TOP/sd_DQ_en[25]} {port:ORCA_TOP/sd_DQ_en[24]} {port:ORCA_TOP/sd_DQ_en[23]} {port:ORCA_TOP/sd_DQ_en[22]} {port:ORCA_TOP/sd_DQ_en[21]} {port:ORCA_TOP/sd_DQ_en[20]} {port:ORCA_TOP/sd_DQ_en[19]} {port:ORCA_TOP/sd_DQ_en[18]} {port:ORCA_TOP/sd_DQ_en[17]} {port:ORCA_TOP/sd_DQ_en[16]} {port:ORCA_TOP/sd_DQ_en[15]} {port:ORCA_TOP/sd_DQ_en[14]} {port:ORCA_TOP/sd_DQ_en[13]} {port:ORCA_TOP/sd_DQ_en[12]} {port:ORCA_TOP/sd_DQ_en[11]} {port:ORCA_TOP/sd_DQ_en[10]} {port:ORCA_TOP/sd_DQ_en[9]} {port:ORCA_TOP/sd_DQ_en[8]} {port:ORCA_TOP/sd_DQ_en[7]} {port:ORCA_TOP/sd_DQ_en[6]} {port:ORCA_TOP/sd_DQ_en[5]} {port:ORCA_TOP/sd_DQ_en[4]} {port:ORCA_TOP/sd_DQ_en[3]} {port:ORCA_TOP/sd_DQ_en[2]} {port:ORCA_TOP/sd_DQ_en[1]} {port:ORCA_TOP/sd_DQ_en[0]} port:ORCA_TOP/test_mode_1 port:ORCA_TOP/scan_enable_2 port:ORCA_TOP/DFT_sdi_1 port:ORCA_TOP/DFT_sdo_1 port:ORCA_TOP/DFT_sdi_2 port:ORCA_TOP/DFT_sdo_2 port:ORCA_TOP/DFT_sdi_3 port:ORCA_TOP/DFT_sdo_3 port:ORCA_TOP/DFT_sdi_4 port:ORCA_TOP/DFT_sdo_4}
+select_obj {inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_4 {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_1} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_2} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_3} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_4} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_5} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_6} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_7} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_8} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_1} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_2} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_3} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_4} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_5} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_6} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_7} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_8} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_A_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_B_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_C_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_D_RAM} inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!3 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!4 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!7 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!8 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!11 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!12 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!13 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!14 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!17 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!18 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!19 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!20 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!23 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!24 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!25 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!26 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!29 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!30 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!31 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!32 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!35 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!36 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!37 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!38 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!41 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!42 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!43 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!44 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!47 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!48 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!49 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!50 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!53 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!54 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!55 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!56 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!59 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!60 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!61 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!62 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!65 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!66 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!67 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!68 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!71 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!72 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!73 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!74 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!77 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!78 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!79 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!80 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!83 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!84 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!85 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!86 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!89 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!90 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!91 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!92 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!95 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!96 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!97 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!98 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!101 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!102 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!103 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!104 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!107 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!108 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!109 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!110 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!113 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!114 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!115 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!116 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!119 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!120 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!121 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!122 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!125 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!126 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!127 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!128 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!131 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!132 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!133 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!134 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!137 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!138 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!139 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!140 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!143 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!144 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!145 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!146 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!149 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!150 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!151 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!152 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!155 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!156 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!157 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!158 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!161 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!162 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!163 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!164 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!167 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!168 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!169 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!170 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!173 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!174 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!175 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!176 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!179 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!180 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!181 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!182 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!185 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!186 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!187 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!188 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!191 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!192 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!193 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!194 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!197 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!198 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!199 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!200 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!203 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!204 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!205 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!206 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!209 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!210 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!211 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!212 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!215 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!216 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!217 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!218 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!221 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!222 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!223 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!224 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!227 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!228 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!229 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!230 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!233 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!234 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!235 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!236 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!239 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!240 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!241 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!242 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!245 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!246 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!247 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!248 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!251 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!252 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!253 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!254 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!257 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!258 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!259 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!260 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!263 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!264 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!265 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!266 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!269 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!270 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!271 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!272 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!275 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!276 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!277 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!278 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!281 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!282 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!283 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!284 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!287 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!288 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!289 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!290 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!293 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!294 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!295 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!296 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!299 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!300 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!301 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!302 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!305 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!306 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!307 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!308 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!311 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!312 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!313 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!314 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!317 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!318 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!319 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!320 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!323 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!324 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!325 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!326 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!329 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!330 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!331 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!332 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!335 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!336 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!337 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!338 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!341 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!342 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!343 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!344 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!347 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!348 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!349 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!350 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!353 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!354 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!355 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!356 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!359 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!360 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!361 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!362 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!365 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!366 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!367 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!368 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!371 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!372 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!373 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!374 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!377 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!378 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!379 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!380 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!383 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!384 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!385 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!386 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!389 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!390 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!391 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!392 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!395 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!396 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!397 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!398 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!401 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!402 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!403 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!404 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!407 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!408 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!409 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!410 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!413 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!414 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!415 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!416 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!419 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!420 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!421 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!422 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!425 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!426 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!427 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!428 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!431 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!432 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!433 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!434 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!437 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!438 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!439 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!440 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!443 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!444 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!445 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!446 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!449 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!450 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!451 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!452 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!455 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!456 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!457 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!458 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!461 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!462 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!463 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!464 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!467 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!468 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!469 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!470 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!473 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!474 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!475 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!476 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!479 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!480 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!481 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!482 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!485 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!486 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!487 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!488 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!491 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!492 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!493 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!494 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!497 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!498 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!499 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!500 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!503 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!504 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!505 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!506 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!509 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!510 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!511 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!512 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!515 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!516 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!517 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!518 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!521 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!522 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!523 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!524 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!527 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!528 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!529 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!530 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!533 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!534 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!535 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!536 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!539 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!540 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!541 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!542 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!545 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!546 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!547 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!548 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!551 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!552 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!553 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!554 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!557 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!558 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!559 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!560 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!563 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!564 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!565 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!566 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!569 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!570 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!571 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!572 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!575 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!576 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!579 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!580 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!583 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!584 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!587 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!588 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!591 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!592 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!595 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!596 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!599 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!600 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!603 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!604 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!607 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!608 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!611 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!612 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!615 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!616 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!619 inst:ORCA_TOP/I_RISC_CORE/xoendcap!DCAP_HVT!620 {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO\/SD_FIFO_RAM_0} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO\/SD_FIFO_RAM_1} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO\/SD_FIFO_RAM_0} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO\/SD_FIFO_RAM_1}}
+select_obj {}
+defOut -selected ../outputs/ORCA_TOP.floorplan.innovus.macros.def
+zoomBox -129.43900 -70.36500 885.81100 868.70800
+zoomBox -283.80100 -152.18200 910.61100 952.61000
+zoomBox -363.96800 -223.35100 1041.22300 1076.40500
+zoomBox -268.80400 -139.91200 925.60800 964.88000
+fit
+deselectAll
+setLayerPreference flightLine -isVisible 0
+fit
+zoomBox 40.59600 -12.69600 862.46200 747.50300
+zoomBox -92.43100 -40.65300 874.47000 853.69900
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+fit
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+alignObject -side bottom
+spaceObject -fixSide right -space 15
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+selectObject Group PD_RISC_CORE
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+alignObject -side right
+spaceObject -fixSide bottom -space 15
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+alignObject -side bottom
+spaceObject -fixSide left -space 15
+undo
+spaceObject -fixSide right -space 15
+deselectAll
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+uiSetTool move
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_4 310.941 11.374 392.992 77.116
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 310.941 193.622 392.992 259.364
+uiSetTool select
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+flipOrRotateObject -flip MX -group
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+alignObject -side bottom
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+flipOrRotateObject -rotate R270 -group
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+alignObject -side left
+spaceObject -fixSide top -space 15
+undo
+spaceObject -fixSide bottom -space 15
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+flipOrRotateObject -rotate R270 -group
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+alignObject -side bottom
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+spaceObject -fixSide left -space 15
+alignObject -side bottom
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+flipOrRotateObject -flip MX -group
+flipOrRotateObject -rotate R90 -group
+flipOrRotateObject -flip MX -group
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+alignObject -side left
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+alignObject -side bottom
+undo
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+flipOrRotateObject -rotate R270 -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+flipOrRotateObject -rotate R270 -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+flipOrRotateObject -rotate R270 -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+flipOrRotateObject -rotate R270 -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+flipOrRotateObject -rotate R270 -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+flipOrRotateObject -rotate R90 -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+alignObject -side left
+spaceObject -fixSide top -space 15
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+alignObject -side left
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+alignObject -side left
+spaceObject -fixSide top -space 15
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+alignObject -side left
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+alignObject -side bottom
+undo
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+alignObject -side left
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+uiSetTool move
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 487.21 528.065 552.952 610.116
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 417.898 526.393 483.64 608.444
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 348.586 528.065 414.328 610.116
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 417.898 615.009 483.64 697.06
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 348.586 616.681 414.328 698.732
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 279.274 616.681 345.016 698.732
+uiSetTool select
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+flipOrRotateObject -flip MX -group
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+alignObject -side top
+spaceObject -fixSide right -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+alignObject -side top
+spaceObject -fixSide right -space 15
+zoomBox 221.15200 414.25500 857.02900 811.08400
+zoomBox 281.94300 464.83500 822.43800 802.14000
+zoomBox 331.39500 506.21300 790.81600 792.92200
+zoomBox 373.37200 541.32700 763.88000 785.03000
+uiSetTool ruler
+zoomBox 280.10000 491.54200 820.59500 828.84700
+zoomBox 218.91300 459.32600 854.79000 856.15500
+uiSetTool select
+zoomBox 144.41400 412.95000 892.50500 879.80800
+zoomBox 56.76800 358.39000 936.87600 907.63600
+zoomBox -46.34400 294.20300 989.07700 940.37400
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+zoomBox -140.20700 218.68800 1077.93600 978.89000
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+undo
+redo
+zoomBox -28.45200 304.36200 1006.97000 950.53400
+zoomBox 280.28100 530.47300 820.77900 867.78000
+zoomBox 470.91500 655.73200 710.73900 805.39800
+zoomBox 539.57400 700.37000 664.76400 778.49700
+zoomBox 571.75400 724.85700 637.10400 765.64000
+uiSetTool ruler
+zoomBox 527.14600 691.63500 674.43300 783.55200
+zoomBox 477.06900 654.15500 716.90400 803.82800
+zoomBox 454.34400 637.15500 736.50300 813.24100
+zoomBox 428.14600 617.40300 760.09800 824.56300
+zoomBox 356.87100 577.46500 816.32100 864.19200
+zoomBox 311.45300 552.09700 851.98300 889.42400
+zoomBox 257.94000 522.41100 893.85900 919.26700
+uiSetTool select
+zoomBox 156.79400 425.08300 1036.96100 974.36600
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+alignObject -side top
+spaceObject -fixSide right -space 15
+zoomBox -79.39000 151.44300 1353.81800 1045.86000
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+alignObject -side right
+spaceObject -fixSide top -space 15
+zoomBox -263.48900 -33.43400 1720.19000 1204.51300
+zoomBox -151.87600 56.94300 1534.25100 1109.19800
+zoomBox -290.15700 -29.48300 1693.52200 1208.46400
+zoomBox -183.73000 56.20200 1502.39700 1108.45700
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+alignObject -side top
+spaceObject -fixSide right -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+flipOrRotateObject -rotate R270 -group
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+alignObject -side top
+spaceObject -fixSide right -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+flipOrRotateObject -flip MX -group
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+alignObject -side top
+spaceObject -fixSide right -space 15
+zoomBox -280.28000 -29.48300 1703.39900 1208.46400
+zoomBox -162.00000 46.32500 1524.12700 1098.58000
+zoomBox -273.86000 -1.33300 1709.81900 1236.61400
+zoomBox -173.11200 45.58400 1513.01500 1097.83900
+zoomBox -388.40700 -123.43400 1945.33300 1332.97500
+zoomBox -271.33400 -47.61200 1712.34600 1190.33600
+uiSetTool ruler
+uiSetTool select
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+uiSetTool move
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0 170.438 504.725 301.844 599.633
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0 170.438 614.633 301.844 709.541
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1 24.032 504.725 155.438 599.633
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1 24.032 614.633 155.438 709.541
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0 621.498 504.725 752.904 599.633
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0 621.498 614.633 752.904 709.541
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1 475.092 504.725 606.498 599.633
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1 475.092 614.633 606.498 709.541
+zoomBox 185.84100 218.35200 1221.33500 864.56900
+zoomBox 424.90000 356.79100 965.43500 694.12100
+zoomBox 266.73400 333.73300 1146.90600 883.01900
+zoomBox 191.71400 315.81600 1227.21100 962.03500
+zoomBox 0.28100 265.31800 1433.49600 1159.73900
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0 621.498 330.91 752.904 425.818
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0 621.498 440.818 752.904 535.726
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1 475.092 330.91 606.498 425.818
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1 475.092 440.818 606.498 535.726
+zoomBox 65.04300 291.54400 1283.27600 1051.80200
+zoomBox 116.90600 314.44300 1152.40400 960.66200
+zoomBox 67.16600 275.77300 1285.39900 1036.03100
+zoomBox 8.64800 229.74400 1441.86300 1124.16500
+zoomBox -64.81400 166.14700 1621.32100 1218.40700
+zoomBox -157.41400 89.84400 1826.27500 1327.79800
+uiSetTool select
+zoomBox -81.60700 166.64000 1604.53000 1218.90100
+zoomBox -15.49100 233.80400 1417.72600 1128.22700
+zoomBox 41.59800 292.32200 1259.83400 1052.58200
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+zoomBox -67.58800 213.46500 1365.63100 1107.88900
+zoomBox -359.09400 14.01700 1624.60200 1251.97500
+zoomBox -547.34500 -110.03100 1786.41600 1346.39100
+zoomBox -376.23600 11.40200 1607.46200 1249.36100
+zoomBox -230.79200 114.62000 1455.35100 1166.88500
+uiSetTool move
+zoomBox -422.90700 -6.37700 1560.79100 1231.58200
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 196.521 512.863 262.263 594.914
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 277.263 512.863 343.005 594.914
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 358.005 512.863 423.747 594.914
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 438.747 512.863 504.489 594.914
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 438.747 609.914 504.489 691.965
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 358.005 609.914 423.747 691.965
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 277.263 609.914 343.005 691.965
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 196.521 609.914 262.263 691.965
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_1 438.747 706.965 504.489 789.016
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 358.005 706.965 423.747 789.016
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 277.263 706.965 343.005 789.016
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 196.521 706.965 262.263 789.016
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 196.521 12.412 262.263 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 277.263 12.412 343.005 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 358.005 12.412 423.747 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 438.747 12.412 504.489 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 438.747 109.463 504.489 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 358.005 109.463 423.747 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 277.263 109.463 343.005 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 196.521 109.463 262.263 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_1 438.747 206.514 504.489 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 358.005 206.514 423.747 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 277.263 206.514 343.005 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 196.521 206.514 262.263 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 12.144 12.412 77.886 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 92.886 12.412 158.628 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 173.628 12.412 239.37 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 254.37 12.412 320.112 94.463
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 254.37 109.463 320.112 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 173.628 109.463 239.37 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 92.886 109.463 158.628 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 12.144 109.463 77.886 191.514
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_1 254.37 206.514 320.112 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 173.628 206.514 239.37 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 92.886 206.514 158.628 288.565
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 12.144 206.514 77.886 288.565
+uiSetTool select
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+zoomBox -234.49700 113.38500 1451.64700 1165.65100
+zoomBox -365.86600 -4.40200 1617.83300 1233.55800
+uiSetTool move
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0 621.498 595.952 752.904 690.86
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1 475.092 595.952 606.498 690.86
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0 621.498 705.86 752.904 800.768
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1 475.092 705.86 606.498 800.768
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0 637.96 595.952 769.366 690.86
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1 491.554 595.952 622.96 690.86
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0 637.96 705.86 769.366 800.768
+setObjFPlanBox Instance I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1 491.554 705.86 622.96 800.768
+uiSetTool select
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+alignObject -side left
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+alignObject -side bottom
+spaceObject -fixSide right -space 15
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+alignObject -side left
+spaceObject -fixSide top -space 15
+zoomBox 112.55900 335.53100 1148.06400 981.75500
+zoomBox 258.02300 437.11800 1006.17600 904.01500
+zoomBox 363.12100 510.51400 903.66200 847.84700
+uiSetTool ruler
+zoomBox 531.01000 644.52500 813.17700 820.61600
+zoomBox 634.30800 732.58300 759.50900 810.71700
+zoomBox 673.29300 766.30400 738.65000 807.09100
+zoomBox 699.81200 789.24100 724.46200 804.62400
+zoomBox 708.75400 796.89800 719.69300 803.72500
+zoomBox 713.19400 800.70100 717.32300 803.27800
+zoomBox 708.84600 796.93100 719.80000 803.76700
+zoomBox 697.61800 787.06900 726.66500 805.19600
+zoomBox 670.06900 761.15300 747.08600 809.21700
+zoomBox 640.77100 735.85600 766.18200 814.12100
+zoomBox 627.05100 724.30300 774.59400 816.38000
+zoomBox 506.76600 631.66600 839.29200 839.18400
+zoomBox 370.82700 527.11000 912.29000 865.01900
+zoomBox 238.18600 446.76300 987.61700 914.45800
+zoomBox 152.46900 394.96000 1034.15200 945.18900
+zoomBox 49.04300 333.88600 1086.31700 981.21400
+zoomBox -384.19700 78.05200 1304.83000 1132.11700
+zoomBox -582.32900 -38.94800 1404.76200 1201.12900
+zoomBox -812.51500 -194.05500 1525.23900 1264.85900
+zoomBox -641.69400 -132.36200 1345.39700 1107.71500
+zoomBox -496.49700 -79.92300 1192.53200 974.14300
+zoomBox -373.07900 -35.35000 1062.59600 860.60700
+zoomBox -268.53200 2.53700 951.79300 764.10100
+zoomBox -179.66700 34.74100 857.61000 682.07100
+zoomBox -366.80000 -80.21800 1068.87800 815.74000
+zoomBox -262.07400 -35.89700 958.25300 725.66800
+uiSetTool select
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+alignObject -side right
+spaceObject -fixSide bottom -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+alignObject -side right
+spaceObject -fixSide bottom -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+alignObject -side right
+spaceObject -fixSide bottom -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+alignObject -side right
+spaceObject -fixSide bottom -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+alignObject -side right
+spaceObject -fixSide bottom -space 15
+undo
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+alignObject -side right
+spaceObject -fixSide top -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+flipOrRotateObject -rotate R270 -group
+flipOrRotateObject -flip MX -group
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+alignObject -side left
+spaceObject -fixSide bottom -space 15
+undo
+undo
+alignObject -side top
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+uiSetTool move
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 34.469 218.134 100.211 300.185
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 34.469 315.355 100.211 397.406
+uiSetTool select
+alignObject -side left
+undo
+undo
+uiSetTool move
+zoomBox -208.14700 7.54900 829.13100 654.87900
+zoomBox -162.30900 44.47700 719.37800 594.70800
+setObjFPlanBox Instance I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 34.469 311.791 100.211 393.842
+uiSetTool select
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+alignObject -side left
+spaceObject -fixSide bottom -space 15
+zoomBox -235.78000 2.51200 801.49900 649.84300
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+alignObject -side top
+undo
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_4
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+alignObject -side top
+spaceObject -fixSide left -space 15
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+flipOrRotateObject -rotate R90 -group
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_4
+alignObject -side top
+spaceObject -fixSide left -space 15
+zoomBox -300.94900 -34.85800 919.38000 726.70800
+zoomBox -374.22200 -76.85600 1061.45900 819.10400
+zoomBox -431.20100 -130.26100 1257.83600 923.81000
+zoomBox -232.51200 -50.36500 1203.17000 845.59600
+zoomBox -63.62600 16.83200 1156.70400 778.39900
+zoomBox -229.11700 -34.10300 1206.56600 861.85900
+fit
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+flipOrRotateObject -flip MY -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+flipOrRotateObject -flip MY -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+flipOrRotateObject -flip MY -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+flipOrRotateObject -flip MY -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+flipOrRotateObject -flip MY -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+flipOrRotateObject -rotate R270 -group
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+flipOrRotateObject -flip MX -group
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+zoomBox 203.63100 53.12500 951.72200 519.98300
+zoomBox 55.07800 -28.42500 1090.49800 617.74600
+zoomBox 166.05300 -1.35800 1046.16000 547.88700
+zoomBox 259.50400 23.51100 1007.59600 490.37000
+uiSetTool ruler
+fit
+createPlaceBlockage -allMacro -excludeFlops -name place_blockage_partial -type partial -density 20 -outerRingBySide {14 14 14 14}
+setPlaceMode -place_design_floorplan_mode true
+setPlaceMode -place_global_max_density 0.75
+setPlaceMode -fp true
+place_design -noPrePlaceOpt
+globalRoute
+checkFPlan -reportUtil
+summaryReport -noHtml -outfile summary.rpt
+uiSetTool select
+setLayerPreference node_layer -isVisible 0
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+setDrawView fplan
+selectObject Module I_BLENDER_1
+zoomBox -469.29700 -132.78800 1216.70800 919.39100
+deselectAll
+selectObject Module I_SDRAM_TOP
+zoomBox -381.56900 -90.81400 1051.53600 803.53900
+zoomBox -307.00100 -55.13500 911.13900 705.06500
+zoomBox -243.61700 -24.80800 791.80200 621.36200
+zoomBox -187.03400 -16.17300 693.07200 533.07200
+zoomBox -245.03600 -27.51600 790.38400 618.65500
+zoomBox -313.27200 -40.86000 904.86900 719.34100
+zoomBox -384.98700 -67.97600 1048.12000 826.37800
+zoomBox -469.35700 -102.18600 1216.65100 949.99500
+setLayerPreference flightLine -isVisible 1
+deselectAll
+selectObject Module I_BLENDER_1
+deselectAll
+selectObject Module I_BLENDER_0
+zoomBox -538.98700 -195.02600 1444.55200 1042.83400
+deselectAll
+selectObject Module I_SDRAM_TOP
+deselectAll
+selectObject Module I_PCI_TOP
+zoomBox -657.21500 -287.69100 1676.36000 1168.61500
+zoomBox -796.30700 -396.70900 1949.07600 1316.59200
+zoomBox -959.94400 -524.96500 2269.91800 1490.68300
+zoomBox -1152.45900 -675.85500 2647.37900 1695.49600
+deselectAll
+selectObject Module I_BLENDER_0
+zoomBox -1064.95200 -525.43800 2164.91000 1490.21000
+zoomBox -1207.32800 -681.05800 2592.51000 1690.29300
+zoomBox -1050.10000 -383.60800 1695.28400 1329.69400
+zoomBox -1762.24200 -1053.14900 2708.16100 1736.67900
+zoomBox -1441.04100 -645.47100 1788.82600 1370.18000
+zoomBox -1315.59900 -486.25700 1429.78800 1227.04700
+deselectAll
+selectObject Module I_PCI_TOP
+deselectAll
+selectObject Module I_BLENDER_0
+deselectAll
+selectObject Module I_BLENDER_1
+deselectAll
+selectObject Module I_SDRAM_TOP
+deselectAll
+selectObject Module I_BLENDER_0
+deselectAll
+selectObject Module I_BLENDER_1
+deselectAll
+selectObject Module I_BLENDER_0
+deselectAll
+selectObject Module I_SDRAM_TOP
+deselectAll
+selectObject Module I_PCI_TOP
+deselectAll
+selectObject Module I_BLENDER_0
+deselectAll
+selectObject Module I_BLENDER_1
+deselectAll
+selectObject Module I_SDRAM_TOP
+deselectAll
+selectObject Module I_PCI_TOP
+setDrawView place
+setDrawView fplan
+setDrawView place
+setDrawView fplan
+deselectAll
+selectObject Module I_SDRAM_TOP
+setDrawView place
+zoomBox -1002.55800 -349.89900 1331.02200 1106.41000
+zoomBox -736.47300 -234.57600 1247.07100 1003.28700
+zoomBox -967.99100 -379.52900 1365.59000 1076.78000
+zoomBox -744.60600 -238.93400 1238.93800 998.92900
+zoomBox -554.73000 -119.42800 1131.28300 932.75600
+zoomBox -393.33500 -17.84800 1039.77700 876.50900
+zoomBox -232.06600 55.29400 986.08000 815.49800
+zoomBox -389.05500 -16.24300 1044.05900 878.11500
+zoomBox -219.04500 14.08400 999.10300 774.28900
+zoomBox -389.05600 -16.24400 1044.05900 878.11500
+zoomBox -216.90400 20.32700 1001.24400 780.53200
+zoomBox -389.05600 -16.24400 1044.05900 878.11500
+deselectAll
+select_obj [ get_ports * ]
+select_obj {port:ORCA_TOP/sdram_clk port:ORCA_TOP/sys_2x_clk port:ORCA_TOP/shutdown port:ORCA_TOP/test_mode {port:ORCA_TOP/test_si[5]} {port:ORCA_TOP/test_si[4]} {port:ORCA_TOP/test_si[3]} {port:ORCA_TOP/test_si[2]} {port:ORCA_TOP/test_si[1]} {port:ORCA_TOP/test_si[0]} {port:ORCA_TOP/test_so[5]} {port:ORCA_TOP/test_so[4]} {port:ORCA_TOP/test_so[3]} {port:ORCA_TOP/test_so[2]} {port:ORCA_TOP/test_so[1]} {port:ORCA_TOP/test_so[0]} port:ORCA_TOP/scan_enable port:ORCA_TOP/ate_clk port:ORCA_TOP/occ_bypass port:ORCA_TOP/occ_reset port:ORCA_TOP/pclk port:ORCA_TOP/prst_n port:ORCA_TOP/pidsel port:ORCA_TOP/pgnt_n {port:ORCA_TOP/pad_in[31]} {port:ORCA_TOP/pad_in[30]} {port:ORCA_TOP/pad_in[29]} {port:ORCA_TOP/pad_in[28]} {port:ORCA_TOP/pad_in[27]} {port:ORCA_TOP/pad_in[26]} {port:ORCA_TOP/pad_in[25]} {port:ORCA_TOP/pad_in[24]} {port:ORCA_TOP/pad_in[23]} {port:ORCA_TOP/pad_in[22]} {port:ORCA_TOP/pad_in[21]} {port:ORCA_TOP/pad_in[20]} {port:ORCA_TOP/pad_in[19]} {port:ORCA_TOP/pad_in[18]} {port:ORCA_TOP/pad_in[17]} {port:ORCA_TOP/pad_in[16]} {port:ORCA_TOP/pad_in[15]} {port:ORCA_TOP/pad_in[14]} {port:ORCA_TOP/pad_in[13]} {port:ORCA_TOP/pad_in[12]} {port:ORCA_TOP/pad_in[11]} {port:ORCA_TOP/pad_in[10]} {port:ORCA_TOP/pad_in[9]} {port:ORCA_TOP/pad_in[8]} {port:ORCA_TOP/pad_in[7]} {port:ORCA_TOP/pad_in[6]} {port:ORCA_TOP/pad_in[5]} {port:ORCA_TOP/pad_in[4]} {port:ORCA_TOP/pad_in[3]} {port:ORCA_TOP/pad_in[2]} {port:ORCA_TOP/pad_in[1]} {port:ORCA_TOP/pad_in[0]} {port:ORCA_TOP/pad_out[31]} {port:ORCA_TOP/pad_out[30]} {port:ORCA_TOP/pad_out[29]} {port:ORCA_TOP/pad_out[28]} {port:ORCA_TOP/pad_out[27]} {port:ORCA_TOP/pad_out[26]} {port:ORCA_TOP/pad_out[25]} {port:ORCA_TOP/pad_out[24]} {port:ORCA_TOP/pad_out[23]} {port:ORCA_TOP/pad_out[22]} {port:ORCA_TOP/pad_out[21]} {port:ORCA_TOP/pad_out[20]} {port:ORCA_TOP/pad_out[19]} {port:ORCA_TOP/pad_out[18]} {port:ORCA_TOP/pad_out[17]} {port:ORCA_TOP/pad_out[16]} {port:ORCA_TOP/pad_out[15]} {port:ORCA_TOP/pad_out[14]} {port:ORCA_TOP/pad_out[13]} {port:ORCA_TOP/pad_out[12]} {port:ORCA_TOP/pad_out[11]} {port:ORCA_TOP/pad_out[10]} {port:ORCA_TOP/pad_out[9]} {port:ORCA_TOP/pad_out[8]} {port:ORCA_TOP/pad_out[7]} {port:ORCA_TOP/pad_out[6]} {port:ORCA_TOP/pad_out[5]} {port:ORCA_TOP/pad_out[4]} {port:ORCA_TOP/pad_out[3]} {port:ORCA_TOP/pad_out[2]} {port:ORCA_TOP/pad_out[1]} {port:ORCA_TOP/pad_out[0]} port:ORCA_TOP/pad_en port:ORCA_TOP/ppar_in port:ORCA_TOP/ppar_out port:ORCA_TOP/ppar_en {port:ORCA_TOP/pc_be_in[3]} {port:ORCA_TOP/pc_be_in[2]} {port:ORCA_TOP/pc_be_in[1]} {port:ORCA_TOP/pc_be_in[0]} {port:ORCA_TOP/pc_be_out[3]} {port:ORCA_TOP/pc_be_out[2]} {port:ORCA_TOP/pc_be_out[1]} {port:ORCA_TOP/pc_be_out[0]} port:ORCA_TOP/pc_be_en port:ORCA_TOP/pframe_n_in port:ORCA_TOP/pframe_n_out port:ORCA_TOP/pframe_n_en port:ORCA_TOP/ptrdy_n_in port:ORCA_TOP/ptrdy_n_out port:ORCA_TOP/ptrdy_n_en port:ORCA_TOP/pirdy_n_in port:ORCA_TOP/pirdy_n_out port:ORCA_TOP/pirdy_n_en port:ORCA_TOP/pdevsel_n_in port:ORCA_TOP/pdevsel_n_out port:ORCA_TOP/pdevsel_n_en port:ORCA_TOP/pstop_n_in port:ORCA_TOP/pstop_n_out port:ORCA_TOP/pstop_n_en port:ORCA_TOP/pperr_n_in port:ORCA_TOP/pperr_n_out port:ORCA_TOP/pperr_n_en port:ORCA_TOP/pserr_n_in port:ORCA_TOP/pserr_n_out port:ORCA_TOP/pserr_n_en port:ORCA_TOP/preq_n port:ORCA_TOP/pack_n port:ORCA_TOP/pm66en {port:ORCA_TOP/sd_A[9]} {port:ORCA_TOP/sd_A[8]} {port:ORCA_TOP/sd_A[7]} {port:ORCA_TOP/sd_A[6]} {port:ORCA_TOP/sd_A[5]} {port:ORCA_TOP/sd_A[4]} {port:ORCA_TOP/sd_A[3]} {port:ORCA_TOP/sd_A[2]} {port:ORCA_TOP/sd_A[1]} {port:ORCA_TOP/sd_A[0]} port:ORCA_TOP/sd_CK port:ORCA_TOP/sd_CKn port:ORCA_TOP/sd_LD port:ORCA_TOP/sd_RW {port:ORCA_TOP/sd_BWS[1]} {port:ORCA_TOP/sd_BWS[0]} {port:ORCA_TOP/sd_DQ_in[31]} {port:ORCA_TOP/sd_DQ_in[30]} {port:ORCA_TOP/sd_DQ_in[29]} {port:ORCA_TOP/sd_DQ_in[28]} {port:ORCA_TOP/sd_DQ_in[27]} {port:ORCA_TOP/sd_DQ_in[26]} {port:ORCA_TOP/sd_DQ_in[25]} {port:ORCA_TOP/sd_DQ_in[24]} {port:ORCA_TOP/sd_DQ_in[23]} {port:ORCA_TOP/sd_DQ_in[22]} {port:ORCA_TOP/sd_DQ_in[21]} {port:ORCA_TOP/sd_DQ_in[20]} {port:ORCA_TOP/sd_DQ_in[19]} {port:ORCA_TOP/sd_DQ_in[18]} {port:ORCA_TOP/sd_DQ_in[17]} {port:ORCA_TOP/sd_DQ_in[16]} {port:ORCA_TOP/sd_DQ_in[15]} {port:ORCA_TOP/sd_DQ_in[14]} {port:ORCA_TOP/sd_DQ_in[13]} {port:ORCA_TOP/sd_DQ_in[12]} {port:ORCA_TOP/sd_DQ_in[11]} {port:ORCA_TOP/sd_DQ_in[10]} {port:ORCA_TOP/sd_DQ_in[9]} {port:ORCA_TOP/sd_DQ_in[8]} {port:ORCA_TOP/sd_DQ_in[7]} {port:ORCA_TOP/sd_DQ_in[6]} {port:ORCA_TOP/sd_DQ_in[5]} {port:ORCA_TOP/sd_DQ_in[4]} {port:ORCA_TOP/sd_DQ_in[3]} {port:ORCA_TOP/sd_DQ_in[2]} {port:ORCA_TOP/sd_DQ_in[1]} {port:ORCA_TOP/sd_DQ_in[0]} {port:ORCA_TOP/sd_DQ_out[31]} {port:ORCA_TOP/sd_DQ_out[30]} {port:ORCA_TOP/sd_DQ_out[29]} {port:ORCA_TOP/sd_DQ_out[28]} {port:ORCA_TOP/sd_DQ_out[27]} {port:ORCA_TOP/sd_DQ_out[26]} {port:ORCA_TOP/sd_DQ_out[25]} {port:ORCA_TOP/sd_DQ_out[24]} {port:ORCA_TOP/sd_DQ_out[23]} {port:ORCA_TOP/sd_DQ_out[22]} {port:ORCA_TOP/sd_DQ_out[21]} {port:ORCA_TOP/sd_DQ_out[20]} {port:ORCA_TOP/sd_DQ_out[19]} {port:ORCA_TOP/sd_DQ_out[18]} {port:ORCA_TOP/sd_DQ_out[17]} {port:ORCA_TOP/sd_DQ_out[16]} {port:ORCA_TOP/sd_DQ_out[15]} {port:ORCA_TOP/sd_DQ_out[14]} {port:ORCA_TOP/sd_DQ_out[13]} {port:ORCA_TOP/sd_DQ_out[12]} {port:ORCA_TOP/sd_DQ_out[11]} {port:ORCA_TOP/sd_DQ_out[10]} {port:ORCA_TOP/sd_DQ_out[9]} {port:ORCA_TOP/sd_DQ_out[8]} {port:ORCA_TOP/sd_DQ_out[7]} {port:ORCA_TOP/sd_DQ_out[6]} {port:ORCA_TOP/sd_DQ_out[5]} {port:ORCA_TOP/sd_DQ_out[4]} {port:ORCA_TOP/sd_DQ_out[3]} {port:ORCA_TOP/sd_DQ_out[2]} {port:ORCA_TOP/sd_DQ_out[1]} {port:ORCA_TOP/sd_DQ_out[0]} {port:ORCA_TOP/sd_DQ_en[31]} {port:ORCA_TOP/sd_DQ_en[30]} {port:ORCA_TOP/sd_DQ_en[29]} {port:ORCA_TOP/sd_DQ_en[28]} {port:ORCA_TOP/sd_DQ_en[27]} {port:ORCA_TOP/sd_DQ_en[26]} {port:ORCA_TOP/sd_DQ_en[25]} {port:ORCA_TOP/sd_DQ_en[24]} {port:ORCA_TOP/sd_DQ_en[23]} {port:ORCA_TOP/sd_DQ_en[22]} {port:ORCA_TOP/sd_DQ_en[21]} {port:ORCA_TOP/sd_DQ_en[20]} {port:ORCA_TOP/sd_DQ_en[19]} {port:ORCA_TOP/sd_DQ_en[18]} {port:ORCA_TOP/sd_DQ_en[17]} {port:ORCA_TOP/sd_DQ_en[16]} {port:ORCA_TOP/sd_DQ_en[15]} {port:ORCA_TOP/sd_DQ_en[14]} {port:ORCA_TOP/sd_DQ_en[13]} {port:ORCA_TOP/sd_DQ_en[12]} {port:ORCA_TOP/sd_DQ_en[11]} {port:ORCA_TOP/sd_DQ_en[10]} {port:ORCA_TOP/sd_DQ_en[9]} {port:ORCA_TOP/sd_DQ_en[8]} {port:ORCA_TOP/sd_DQ_en[7]} {port:ORCA_TOP/sd_DQ_en[6]} {port:ORCA_TOP/sd_DQ_en[5]} {port:ORCA_TOP/sd_DQ_en[4]} {port:ORCA_TOP/sd_DQ_en[3]} {port:ORCA_TOP/sd_DQ_en[2]} {port:ORCA_TOP/sd_DQ_en[1]} {port:ORCA_TOP/sd_DQ_en[0]} port:ORCA_TOP/test_mode_1 port:ORCA_TOP/scan_enable_2 port:ORCA_TOP/DFT_sdi_1 port:ORCA_TOP/DFT_sdo_1 port:ORCA_TOP/DFT_sdi_2 port:ORCA_TOP/DFT_sdo_2 port:ORCA_TOP/DFT_sdi_3 port:ORCA_TOP/DFT_sdo_3 port:ORCA_TOP/DFT_sdi_4 port:ORCA_TOP/DFT_sdo_4}
+select_obj {inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_0_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_1_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_2_4 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_1 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_2 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_3 inst:ORCA_TOP/I_CONTEXT_MEM/I_CONTEXT_RAM_3_4 {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_1} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_2} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_3} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_4} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_5} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_6} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_7} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_READ_FIFO\/PCI_FIFO_RAM_8} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_1} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_2} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_3} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_4} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_5} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_6} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_7} {inst:ORCA_TOP/I_PCI_TOP/I_PCI_WRITE_FIFO\/PCI_FIFO_RAM_8} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_A_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_B_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_C_RAM} {inst:ORCA_TOP/I_RISC_CORE/I_REG_FILE\/REG_FILE_D_RAM} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO\/SD_FIFO_RAM_0} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_READ_FIFO\/SD_FIFO_RAM_1} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO\/SD_FIFO_RAM_0} {inst:ORCA_TOP/I_SDRAM_TOP/I_SDRAM_WRITE_FIFO\/SD_FIFO_RAM_1}}
+select_obj {}
+select_obj {place_blockage:0x7fdca0434638 place_blockage:0x7fdca0434610 place_blockage:0x7fdca04345e8 place_blockage:0x7fdca04345c0 place_blockage:0x7fdca0434598 place_blockage:0x7fdca0434570 place_blockage:0x7fdca0434548 place_blockage:0x7fdca0434520 place_blockage:0x7fdca04344f8 place_blockage:0x7fdca04344d0 place_blockage:0x7fdca04344a8 place_blockage:0x7fdca0434480 place_blockage:0x7fdca0434458 place_blockage:0x7fdca0434430 place_blockage:0x7fdca0434408 place_blockage:0x7fdca04343e0 place_blockage:0x7fdca04343b8 place_blockage:0x7fdca0434390 place_blockage:0x7fdca0434368 place_blockage:0x7fdca0434340 place_blockage:0x7fdca0434318 place_blockage:0x7fdca04342f0 place_blockage:0x7fdca04342c8 place_blockage:0x7fdca04342a0 place_blockage:0x7fdca0434278 place_blockage:0x7fdca0434250 place_blockage:0x7fdca0434228 place_blockage:0x7fdca0434200 place_blockage:0x7fdca04341d8 place_blockage:0x7fdca04341b0 place_blockage:0x7fdca0434188 place_blockage:0x7fdca0434160 place_blockage:0x7fdca0434138 place_blockage:0x7fdca0434110 place_blockage:0x7fdca04340e8 place_blockage:0x7fdca04340c0 place_blockage:0x7fdca0434098 place_blockage:0x7fdca0434070 place_blockage:0x7fdca0434048 place_blockage:0x7fdca0434020}
+defOut -selected ../outputs/ORCA_TOP.floorplan.innovus.macros.lab2_final_v2.def
+deselectAll
+zoomBox -209.23300 81.16000 1008.91500 841.36500
+zoomBox -376.92500 -0.01000 1056.19000 894.34900
+zoomBox -197.10200 104.35200 1021.04600 864.55700
+zoomBox -41.52300 197.00100 993.90300 843.17600
+zoomBox -182.39500 109.35500 1035.75500 869.56100
+zoomBox -341.16800 9.45200 1091.95000 903.81300
+zoomBox -525.65100 -107.45000 1160.37000 944.73900
+zoomBox -308.00700 5.25500 1125.11000 899.61500
+zoomBox -451.14500 -113.95600 1234.87600 938.23300
+zoomBox -268.76100 -83.94400 1164.35700 810.41700
+zoomBox -113.73500 -58.43300 1104.41600 701.77400
+zoomBox -268.22600 -87.15500 1164.89200 807.20600
+zoomBox -449.98000 -120.94500 1236.04100 931.24400
+zoomBox -306.63300 -56.93300 1126.48500 837.42800
+zoomBox -494.26400 -150.74800 1191.75700 901.44100
+zoomBox -303.27500 -4.67300 1129.84300 889.68800
+zoomBox -140.57800 126.62700 1077.57300 886.83400
+zoomBox -3.65000 231.25600 1031.77900 877.43200
+zoomBox 112.73900 320.19100 992.85400 869.44100
+zoomBox 211.45000 394.69000 959.54800 861.55300
+zoomBox 295.26100 457.17600 931.14500 854.01000
+zoomBox 366.50100 508.70600 907.00300 846.01500
+zoomBox 427.05500 552.50700 886.48200 839.22000
+zoomBox 478.64000 590.08100 869.15300 833.78700
+zoomBox 426.94000 552.39300 886.36700 839.10600
+zoomBox 366.11600 508.12100 906.61900 845.43100
+zoomBox -5.31700 238.11700 1030.12000 884.29800
+zoomBox -142.70100 139.40100 1075.46000 899.61400
+zoomBox -5.31800 238.11700 1030.12000 884.29900
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+dehighlight
+setLayerPreference stdCell -isVisible 0
+uiSetTool ruler
+zoomBox 291.18400 286.81900 681.70200 530.52800
+zoomBox 391.06100 303.24900 564.33600 411.38400
+zoomBox 436.41600 311.72700 513.30000 359.70800
+zoomBox 456.49300 316.10200 490.60800 337.39200
+zoomBox 458.79400 316.70900 487.79300 334.80600
+zoomBox 466.04300 318.49000 478.91200 326.52100
+zoomBox 459.39200 314.63400 488.39700 332.73500
+zoomBox 444.10000 309.28400 509.47100 350.08000
+zoomBox 385.75600 289.68100 589.67300 416.93900
+zoomBox 243.47500 264.68300 784.15500 602.10300
+zoomBox 34.34200 183.32900 1070.11900 829.72300
+zoomBox -363.70500 18.52500 1620.52300 1256.81500
+zoomBox 155.26000 532.36200 903.61100 999.38300
+zoomBox -42.58200 339.20300 1175.98400 1099.66900
+zoomBox -133.77400 252.65100 1299.83300 1147.31700
+zoomBox 243.40100 600.18600 784.08700 937.61000
+zoomBox 155.33500 517.80800 903.69000 984.83100
+zoomBox 99.22200 465.20200 979.64000 1014.64100
+zoomBox 33.20700 403.31300 1068.99300 1049.71200
+zoomBox -135.83000 245.68000 1297.78500 1140.35100
+zoomBox -369.79100 27.71300 1614.45300 1266.01300
+zoomBox -135.83200 245.68000 1297.78500 1140.35200
+zoomBox -44.46100 330.80500 1174.11300 1091.27600
+zoomBox 33.20400 403.16100 1068.99200 1049.56100
+zoomBox -369.79300 27.71300 1614.45300 1266.01400
+zoomBox -518.57500 -110.89900 1815.83200 1345.92600
+zoomBox -369.79400 27.71200 1614.45300 1266.01400
+zoomBox -520.32000 -107.70300 1814.08900 1349.12300
+zoomBox -697.40900 -267.01500 2048.95400 1446.89800
+zoomBox -905.75000 -454.44100 2325.26700 1561.92800
+zoomBox 44.52300 -168.85900 1263.10000 591.61400
+zoomBox 374.18400 -74.91200 914.87400 262.51400
+zoomBox 447.64800 -53.49600 838.29700 190.29500
+zoomBox 476.33800 -45.13200 808.39100 162.09100
+zoomBox 500.72500 -38.02300 782.97000 138.11700
+zoomBox 521.91000 -31.24200 761.81900 118.47700
+zoomBox 500.68900 -38.02300 782.93500 138.11700
+zoomBox 475.72300 -46.04200 807.77700 161.18200
+zoomBox 446.35100 -55.47600 837.00300 188.31700
+zoomBox 411.73800 -67.20400 871.32900 219.61100
+zoomBox 371.01700 -81.00200 911.71300 256.42800
+zoomBox 323.11000 -97.23500 959.22300 299.74200
+zoomBox 266.75000 -116.33200 1015.11800 350.69900
+zoomBox 323.11000 -97.23500 959.22300 299.74200
+zoomBox 371.01600 -81.00200 911.71200 256.42800
+zoomBox 446.34800 -55.47700 837.00200 188.31700
+zoomBox 475.76800 -45.50800 807.82400 161.71700
+zoomBox 525.24300 -29.90900 765.15500 119.81200
+zoomBox 544.56500 -23.81700 748.49100 103.44600
+zoomBox 561.06500 -18.69000 734.40200 89.48400
+zoomBox 575.82300 -14.31000 723.16000 77.63800
+zoomBox 588.36800 -10.58700 713.60500 67.56900
+zoomBox 599.03100 -7.42300 705.48300 59.01000
+zoomBox 543.10700 -29.26400 747.03300 97.99900
+zoomBox 438.04200 -48.79100 828.70000 195.00600
+zoomBox 296.87200 -105.42200 932.99700 291.56200
+zoomBox 350.87700 -82.37900 891.58300 255.05700
+zoomBox 232.30300 -132.53200 980.68600 334.50900
+zoomBox 156.89700 -164.31700 1037.34900 385.14400
+zoomBox 63.28500 -209.18900 1099.11200 437.23600
+zoomBox -46.84600 -261.97900 1171.77400 498.52100
+zoomBox -175.69800 -323.19300 1257.97300 571.51300
+zoomBox -326.23900 -394.15900 1360.43300 658.43600
+zoomBox -502.60600 -474.93200 1481.71500 763.41600
+zoomBox -710.09500 -569.95900 1624.40000 886.92100
+zoomBox -951.80700 -677.65200 1794.65800 1036.32400
+zoomBox -1229.33600 -795.50200 2001.79900 1220.94100
+zoomBox -714.42000 -343.09000 1620.07700 1113.79100
+zoomBox -513.32400 -167.27600 1470.99900 1071.07300
+zoomBox -344.61500 -41.54800 1342.05900 1011.04900
+zoomBox -64.35200 200.65000 1154.27200 961.15200
+zoomBox 44.86900 295.15600 1080.69900 941.58300
+zoomBox 136.54600 375.35800 1017.00200 924.82100
+zoomBox 272.72300 498.66900 908.85400 895.65700
+uiSetTool select
+zoomBox 368.10600 644.26700 700.17200 851.49800
+zoomBox 383.73100 668.11800 665.98700 844.26400
+zoomBox 438.87600 752.29600 545.33300 818.73200
+zoomBox 454.83800 776.66200 510.41100 811.34300
+zoomBox 433.55800 743.64500 558.80700 821.80900
+zoomBox 418.86500 720.84900 592.22200 829.03500
+zoomBox 409.52200 706.35200 613.47200 833.63000
+zoomBox 398.53100 689.29700 638.47200 839.03600
+zoomBox 385.60000 669.23300 667.88300 845.39600
+zoomBox 370.38600 645.62800 702.48400 852.87900
+zoomBox 352.48800 617.85700 743.19200 861.68200
+zoomBox 331.43200 585.18600 791.08300 872.03900
+zoomBox 306.66000 546.74900 847.42600 884.22300
+zoomBox 277.51600 501.52800 913.71200 898.55700
+zoomBox 306.65800 546.74800 847.42600 884.22300
+zoomBox 277.83100 533.36400 914.02900 930.39400
+zoomBox 243.91700 517.61800 992.38500 984.71200
+zoomBox 204.01800 499.09400 1084.56900 1048.61600
+zoomBox 157.20700 477.17100 1193.15000 1123.66800
+zoomBox 26.60000 337.80100 1460.43200 1232.60700
+zoomBox -270.00800 21.83400 2064.74700 1478.87600
+zoomBox 85.62800 282.07800 1304.38600 1042.66400
+zoomBox 145.25100 362.48600 1181.19500 1008.98400
+zoomBox 305.92600 583.15600 846.69500 920.63200
+zoomBox 414.79800 733.55400 618.75000 860.83400
+zoomBox 423.37800 744.34400 596.73800 852.53200
+zoomBox 430.30500 753.23500 577.66100 845.19500
+zoomBox 436.19300 760.79200 561.44600 838.95800
+zoomBox 430.17600 752.68300 577.53300 844.64400
+zoomBox 423.54900 742.43200 596.91200 850.62200
+zoomBox 407.99500 712.20900 647.94500 861.95400
+zoomBox 373.08400 650.02800 763.80500 893.86400
+zoomBox 351.62600 617.69800 811.29800 904.56400
+zoomBox 325.91000 579.32700 866.70100 916.81600
+zoomBox 260.06300 481.07400 1008.56300 948.18800
+zoomBox 392.37800 536.01100 674.67600 712.18400
+zoomBox 436.94600 554.51700 562.20500 632.68700
+zoomBox 456.43100 563.01700 512.01200 597.70300
+zoomBox 464.97500 566.91700 489.63700 582.30800
+zoomBox 465.99700 567.38400 486.96000 580.46600
+zoomBox 466.86300 567.80400 484.68200 578.92400
+zoomBox 464.78400 566.14500 489.44700 581.53600
+zoomBox 463.46600 565.08300 492.48100 583.19000
+zoomBox 461.95800 563.80300 496.09300 585.10600
+zoomBox 460.18100 562.29800 500.34200 587.36100
+zoomBox 446.89200 549.80300 537.40500 606.28900
+zoomBox 431.64700 531.91500 579.03200 623.89300
+zoomBox 416.47300 516.25000 620.46600 643.55500
+zoomBox 406.82400 506.33200 646.81500 656.10200
+zoomBox 395.15500 499.37200 677.49800 675.57300
+zoomBox 381.42700 491.18500 713.59500 698.48000
+zoomBox 365.27600 481.55300 756.06300 725.43000
+zoomBox 264.01100 397.51200 1012.63800 864.70500
+uiSetTool ruler
+zoomBox 486.08100 455.39800 768.42600 631.60000
+zoomBox 560.76700 475.52600 686.04700 553.70900
+zoomBox 594.07900 484.95200 649.66800 519.64300
+zoomBox 601.45100 487.10200 641.61500 512.16700
+uiSetTool select
+zoomBox 581.88800 478.80100 658.82900 526.81700
+zoomBox 546.46700 465.64700 693.86200 557.63100
+zoomBox 522.07000 453.97400 726.07700 581.28800
+zoomBox 468.77500 428.23000 800.96700 635.54000
+zoomBox 415.93900 402.50000 875.72000 689.43400
+zoomBox 382.33900 386.13800 923.25800 723.70700
+zoomBox 241.59300 317.59700 1122.39000 867.27300
+zoomBox 177.35400 295.02300 1213.58700 941.70100
+zoomBox -1.99400 151.16700 1432.23900 1046.22400
+zoomBox -116.04800 59.58800 1571.28700 1112.59700
+zoomBox 126.81200 75.90700 1345.91300 836.70700
+zoomBox 220.90000 86.53000 1257.13600 733.21000
+zoomBox 49.02400 -31.49100 1483.26100 863.56800
+zoomBox -59.77800 -107.73700 1627.56000 945.27400
+zoomBox 134.89800 -31.57600 1354.00100 729.22500
+uiSetTool ruler
+fit
+setDrawView fplan
+uiSetTool select
+setDrawView place

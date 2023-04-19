@@ -682,3 +682,617 @@ deselectAll
 selectModule I_SDRAM_TOP
 highlight -auto_color
 deselectAll
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+dehighlight -select
+dehighlight
+checkFPlan -reportUtil
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+setDrawView fplan
+setDrawView place
+setDrawView place
+ui_view_box
+ui_view_box
+dbquery -area {-325.532 -40.652 1107.572 853.7} -objType inst
+dbquery -area {-325.532 -40.652 1107.572 853.7} -objType regular
+dbquery -area {-325.532 -40.652 1107.572 853.7} -objType special
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+setDrawView place
+deselectAll
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+zoomBox -532.47000 -124.39300 1153.53500 927.78600
+zoomBox -325.53300 -40.65300 1107.57300 853.70000
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+setLayerPreference flightLine -isVisible 1
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+deselectAll
+selectDensityArea 10.032 498.863 103.774 608.914 20 place_blockage_partial
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+deselectAll
+selectObject Group PD_RISC_CORE
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+deselectAll
+zoomBox 125.83800 153.19800 873.92900 620.05600
+zoomBox 199.77800 184.95300 835.65500 581.78200
+zoomBox 422.58500 288.57700 704.72800 464.65300
+zoomBox 491.16000 320.47000 664.43300 428.60400
+zoomBox 507.53100 328.08400 654.81300 419.99800
+selectInst I_SDRAM_TOP/I_SDRAM_IF/g315134
+zoomBox 296.24900 230.33700 755.68200 517.05400
+zoomBox 244.50700 204.70200 785.01700 542.01600
+zoomBox 183.71400 174.54200 819.60900 571.38300
+zoomBox 112.19200 139.06100 860.30500 605.93300
+zoomBox 28.05000 97.31900 908.18300 646.58000
+setDrawView fplan
+deselectAll
+zoomBox -84.47500 49.24100 950.97600 695.43100
+zoomBox -570.23100 -152.36000 1115.82800 899.85300
+zoomBox -796.65900 -245.94300 1186.94100 991.95500
+selectObject Module I_SDRAM_TOP
+zoomBox -1046.48500 -347.61700 1287.16200 1108.73400
+setDrawView place
+zoomBox -757.73400 -200.91700 1225.86700 1036.98200
+zoomBox -512.29400 -76.22200 1173.76700 975.99200
+zoomBox -303.67000 29.76900 1129.48200 924.15100
+zoomBox -495.08300 -71.81400 1190.97800 980.40000
+zoomBox -303.04000 31.86800 1130.11200 926.25000
+zoomBox -515.44300 -105.39600 1170.62000 946.81900
+setDrawView fplan
+deselectAll
+selectObject Module I_BLENDER_1
+setDrawView place
+setDrawView fplan
+setDrawView place
+setDrawView fplan
+deselectAll
+selectObject Module I_BLENDER_0
+setDrawView place
+setDrawView fplan
+deselectAll
+selectObject Module I_BLENDER_1
+deselectAll
+selectObject Module I_BLENDER_0
+deselectAll
+selectObject Module I_SDRAM_TOP
+zoomBox -600.13700 -178.23800 1383.46600 1059.66200
+deselectAll
+selectObject Module I_PCI_TOP
+zoomBox -742.48000 -286.01200 1591.17100 1170.34100
+zoomBox -914.72700 -410.41300 1830.74500 1302.94400
+setDrawView place
+setDrawView fplan
+deselectAll
+selectObject Module I_CONTEXT_MEM
+setDrawView place
+zoomBox -745.55700 -272.68400 1588.09500 1183.67000
+zoomBox -601.76200 -155.61400 1381.84300 1082.28700
+zoomBox -411.63200 -58.08000 1274.43200 994.13600
+zoomBox -525.95700 -159.31800 1457.64800 1078.58300
+zoomBox -176.95800 31.16900 1256.19700 925.55300
+zoomBox -337.30900 -56.35200 1348.75600 995.86400
+zoomBox -516.82100 -157.83800 1466.78500 1080.06400
+zoomBox -343.23600 -64.00800 1342.83000 988.20900
+setDrawView fplan
+deselectAll
+selectObject Module I_SDRAM_TOP
+setDrawView place
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_B_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_A_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_C_RAM
+deselectAll
+selectInst I_RISC_CORE/I_REG_FILE/REG_FILE_D_RAM
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectDensityArea 10.032 10.032 92.637 92.967 20 place_blockage_partial
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+deselectAll
+setDrawView fplan
+selectObject Module I_BLENDER_0
+deselectAll
+selectObject Module I_BLENDER_1
+zoomBox -396.57100 -155.36900 1587.03600 1082.53300
+deselectAll
+selectObject Module I_BLENDER_0
+setDrawView place
+zoomBox -299.03700 -86.97200 1387.02900 965.24500
+zoomBox -177.93400 7.05600 1255.22200 901.44000
+zoomBox -91.76700 85.90900 1126.41600 846.13600
+zoomBox -18.52500 152.93400 1016.93100 799.12700
+zoomBox 43.73000 209.90500 923.86900 759.17000
+zoomBox -91.77000 85.90700 1126.41700 846.13700
+setPreference ClockFlightline 0
+setPreference DrawFlightlineLast 1
+setPreference ScanFlightline 0
+setPreference ShowNetWeightConnection 0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_0
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_WRITE_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_SDRAM_TOP/I_SDRAM_READ_FIFO/SD_FIFO_RAM_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_2_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_4
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_2
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_0_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_1
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_3_3
+deselectAll
+selectInst I_CONTEXT_MEM/I_CONTEXT_RAM_1_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+zoomBox -144.04300 16.50800 1289.12000 910.89700
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_3
+zoomBox -230.72500 -14.34500 1455.34900 1037.87700
+zoomBox -331.96400 -49.40900 1651.65300 1188.50000
+zoomBox -237.39200 -15.82700 1448.68200 1036.39500
+zoomBox -157.00600 12.71700 1276.15700 907.10600
+zoomBox -88.67800 36.97900 1129.51100 797.21000
+zoomBox -31.51000 58.05700 1003.95200 704.25400
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_1
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_4
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_3
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_6
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_7
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_5
+deselectAll
+selectInst I_PCI_TOP/I_PCI_READ_FIFO/PCI_FIFO_RAM_2
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_8
+deselectAll
+selectInst I_PCI_TOP/I_PCI_WRITE_FIFO/PCI_FIFO_RAM_1
+zoomBox -174.20600 -10.94000 1043.98500 749.29200
+zoomBox -342.08300 -92.11400 1091.08300 802.27700
+zoomBox -225.05200 -20.21800 993.14100 740.01500
+zoomBox -126.48500 40.59000 908.98000 686.78900
+zoomBox -225.05400 -20.21900 993.14200 740.01600
+zoomBox -126.48600 40.58900 908.98000 686.78900
+setDrawView fplan
+zoomBox -263.72400 -7.17900 954.47300 753.05700
+zoomBox -426.78500 -64.26800 1006.38800 830.12700
+deselectAll
+selectObject Module I_SDRAM_TOP

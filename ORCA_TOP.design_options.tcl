@@ -119,7 +119,8 @@ if {[info exists synopsys_program_name]} {
 	read_power_intent ../../syn/outputs/ORCA_TOP.genus.upf -1801
 	commit_power_intent
 	#Edit box when you reduce fp size
-	modifyPowerDomainAttr PD_RISC_CORE -box 700 0 1000 320
+	modifyPowerDomainAttr PD_RISC_CORE -box 472 492 772.048 802.8
+#modifyPowerDomainAttr PD_RISC_CORE -box 472 10 772.048 320
 
 	setNanoRouteMode -drouteEndIteration 10
 	set cts_clks [get_clocks {SDRAM_CLK SYS_2x_CLK SYS_CLK PCI_CLK} ]
